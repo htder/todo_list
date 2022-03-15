@@ -1,6 +1,6 @@
 # Todo List App
 
-### Refactored Version of [todo list](https://github.com/htder/Todo-list), created with plain javascript to learn factory functions. 
+### Refactored Version of [todo list](https://github.com/htder/Todo-list), initially created with plain javascript to learn factory functions. 
 
 ---
 The goal of this refactoring is to:
