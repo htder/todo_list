@@ -1,5 +1,6 @@
 import Sidebar from './Sidebar.js';
 import Todo from './Todo.js';
+import TaskModal from './modals/TaskModal.js'
 
 import { useState } from 'react';
 
@@ -12,8 +13,13 @@ function Main() {
     priority: 0,
     project: "project test"
   }]);
+  const [projects, setProjects] = useState([
+    {title: "All Tasks"},
+    {title: "project title 1"},
+    {title: "project title 2"},
+  ]);
 
-  const taskElements = tasks.map(task => {
+  const taskElements = tasks.map((task,i) => {
     return (
       <Todo 
         title={task.title} 
@@ -22,6 +28,7 @@ function Main() {
         completed={task.completed}
         priority={task.priority}
         project={task.project}
+        key={i}
       />
     ) 
   })
@@ -30,6 +37,7 @@ function Main() {
       <div>Main</div>
       <div>{taskElements}</div>
       <Sidebar />
+      <TaskModal projects={projects}/>
     </section>
   );
 };
