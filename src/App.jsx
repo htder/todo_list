@@ -1,5 +1,7 @@
-import Header from './components/Header.js';
-import Main from './components/Main.js';
+import React from 'react';
+
+import Header from './components/Header';
+import Main from './components/Main';
 
 function App() {
   return (
