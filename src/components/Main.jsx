@@ -21,19 +21,17 @@ function Main() {
     { title: 'project title 2' },
   ]);
 
-  const taskElements = tasks.map((task, i) => {
-    return (
-      <Todo
-        title={task.title}
-        description={task.description}
-        dueDate={task.dueDate}
-        completed={task.completed}
-        priority={task.priority}
-        project={task.project}
-        key={i}
-      />
-    );
-  });
+  const taskElements = tasks.map((task, i) => (
+    <Todo
+      title={task.title}
+      description={task.description}
+      dueDate={task.dueDate}
+      completed={task.completed}
+      priority={task.priority}
+      project={task.project}
+      key={i}
+    />
+  ));
 
   return (
     <section>

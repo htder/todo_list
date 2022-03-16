@@ -1,29 +1,26 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-function TaskModal({projects}) {
+function TaskModal({ projects }) {
   const [form, setForm] = useState({
-    title: "",
-    description: "",
-    dueDate: "",
+    title: '',
+    description: '',
+    dueDate: '',
     completed: false,
-    priority: "low",
-    project: "All Tasks",
-  })
+    priority: 'low',
+    project: 'All Tasks',
+  });
 
   function handleChange(event, type) {
     const input = event.target.value;
-    setForm(prevForm => ({
-        ...form,
-        [type]: input,
-      })
-    );
-  };
+    setForm((prevForm) => ({
+      ...prevForm,
+      [type]: input,
+    }));
+  }
 
-  const projectList = projects.map((item, i) => {
-    return (
-      <option key={i}>{item.title}</option>
-    );
-  }) 
+  const projectList = projects.map((item, i) => (
+    <option key={i}>{item.title}</option>
+  ));
 
   return (
     <div>
@@ -31,51 +28,55 @@ function TaskModal({projects}) {
         <div>
           <div>
             <h2>Add a new task!</h2>
-            <button
-              type="button"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" data-bs-dismiss="modal" aria-label="Close">
+              Close
+            </button>
           </div>
 
           <div>
             <form>
               <div>
-                <input
-                  type="text"
-                  name="title"
-                  id="title"
-                  placeholder="Title"
-                  value={form.title}
-                  onChange={(event) => handleChange(event, "title")}
-                />
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">
+                  <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="Title"
+                    value={form.title}
+                    onChange={(event) => handleChange(event, 'title')}
+                  />
+                  Title
+                </label>
               </div>
               <div>
-                <textarea
-                  type="text"
-                  name="description"
-                  rows="5"
-                  id="description"
-                  placeholder="Description"
-                  value={form.description}
-                  onChange={(event) => handleChange(event, "description")}
-                ></textarea>
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">
+                  <textarea
+                    type="text"
+                    name="description"
+                    rows="5"
+                    id="description"
+                    placeholder="Description"
+                    value={form.description}
+                    onChange={(event) => handleChange(event, 'description')}
+                  />
+                  Description
+                </label>
               </div>
 
               <div>
-                <input
-                  name="dueDate"
-                  type="date"
-                  id="dueDate"
-                  value={form.dueDate}
-                  onChange={(event) => handleChange(event, "dueDate")}
-                />
-                <label htmlFor="dueDate">Due Date</label>
+                <label htmlFor="dueDate">
+                  <input
+                    name="dueDate"
+                    type="date"
+                    id="dueDate"
+                    value={form.dueDate}
+                    onChange={(event) => handleChange(event, 'dueDate')}
+                  />
+                  Due Date
+                </label>
               </div>
               <div>
-                <select onChange={(event) => handleChange(event, "project")}>
+                <select onChange={(event) => handleChange(event, 'project')}>
                   {projectList}
                 </select>
               </div>
@@ -87,8 +88,8 @@ function TaskModal({projects}) {
                     id="radio1"
                     name="priority"
                     value="high"
-                    checked={form.priority === "high"}
-                    onChange={(event) => handleChange(event, "priority")}
+                    checked={form.priority === 'high'}
+                    onChange={(event) => handleChange(event, 'priority')}
                   />
                   High Priority
                 </label>
@@ -98,8 +99,8 @@ function TaskModal({projects}) {
                     id="radio2"
                     name="priority"
                     value="medium"
-                    checked={form.priority === "medium"}
-                    onChange={(event) => handleChange(event, "priority")}
+                    checked={form.priority === 'medium'}
+                    onChange={(event) => handleChange(event, 'priority')}
                   />
                   Medium Priority
                 </label>
@@ -109,26 +110,22 @@ function TaskModal({projects}) {
                     id="radio3"
                     name="priority"
                     value="low"
-                    checked={form.priority === "low"}
-                    onChange={(event) => handleChange(event, "priority")}
+                    checked={form.priority === 'low'}
+                    onChange={(event) => handleChange(event, 'priority')}
                   />
                   Low Priority
                 </label>
               </fieldset>
-              <button
-                type="submit"
-              >
-                Submit
-              </button>
-              <small className="titleError"></small>
-              <small className="descError"></small>
-              <small className="dateError"></small>
+              <button type="submit">Submit</button>
+              <small className="titleError" />
+              <small className="descError" />
+              <small className="dateError" />
             </form>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default TaskModal;
