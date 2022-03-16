@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 function TaskModal({ projects, addTask }) {
   const [form, setForm] = useState({
@@ -7,7 +8,7 @@ function TaskModal({ projects, addTask }) {
     dueDate: '',
     completed: false,
     priority: 'low',
-    project: 'All Tasks',
+    project: 'Default',
   });
 
   function handleChange(event, type) {
@@ -25,7 +26,7 @@ function TaskModal({ projects, addTask }) {
       dueDate: '',
       completed: false,
       priority: 'low',
-      project: 'Default',
+      project: form.project,
     });
   }
 
@@ -38,13 +39,13 @@ function TaskModal({ projects, addTask }) {
       completed: form.completed,
       priority: form.priority,
       project: form.project,
+      id: nanoid(),
     };
-    clearForm();
     addTask(task);
+    clearForm();
   }
-
-  const projectList = projects.map((item, i) => (
-    <option key={i}>{item.title}</option>
+  const projectList = projects.map((item) => (
+    <option key={item.id}>{item.title}</option>
   ));
 
   return (
