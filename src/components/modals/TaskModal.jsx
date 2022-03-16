@@ -18,6 +18,17 @@ function TaskModal({ projects, addTask }) {
     }));
   }
 
+  function clearForm() {
+    setForm({
+      title: '',
+      description: '',
+      dueDate: '',
+      completed: false,
+      priority: 'low',
+      project: 'All Tasks',
+    });
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     const task = {
@@ -28,11 +39,14 @@ function TaskModal({ projects, addTask }) {
       priority: form.priority,
       project: form.project,
     };
+    clearForm();
     addTask(task);
   }
 
   const projectList = projects.map((item, i) => (
-    <option key={i}>{item.title}</option>
+    <option key={i} value={item.title === 'All Tasks'}>
+      {item.title}
+    </option>
   ));
 
   return (
