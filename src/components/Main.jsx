@@ -33,12 +33,16 @@ function Main() {
     />
   ));
 
+  function addNewTask(task) {
+    console.log(task);
+  }
+
   return (
     <section>
       <div>Main</div>
       <div>{taskElements}</div>
       <Sidebar />
-      <TaskModal projects={projects} />
+      <TaskModal projects={projects} addTask={addNewTask} />
     </section>
   );
 }

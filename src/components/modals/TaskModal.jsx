@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function TaskModal({ projects }) {
+function TaskModal({ projects, addTask }) {
   const [form, setForm] = useState({
     title: '',
     description: '',
@@ -16,6 +16,19 @@ function TaskModal({ projects }) {
       ...prevForm,
       [type]: input,
     }));
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const task = {
+      title: form.title,
+      description: form.description,
+      dueDate: form.dueDate,
+      completed: form.completed,
+      priority: form.priority,
+      project: form.project
+    };
+    console.log(task);
   }
 
   const projectList = projects.map((item, i) => (
@@ -34,7 +47,7 @@ function TaskModal({ projects }) {
           </div>
 
           <div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="title">
                   <input
@@ -76,9 +89,12 @@ function TaskModal({ projects }) {
                 </label>
               </div>
               <div>
-                <select onChange={(event) => handleChange(event, 'project')}>
-                  {projectList}
-                </select>
+                <label htmlFor="project">
+                  <select onChange={(event) => handleChange(event, 'project')}>
+                    {projectList}
+                  </select>
+                  Project
+                </label>
               </div>
               <fieldset>
                 <legend>Priority</legend>
