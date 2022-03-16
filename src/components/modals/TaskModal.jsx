@@ -25,7 +25,7 @@ function TaskModal({ projects, addTask }) {
       dueDate: '',
       completed: false,
       priority: 'low',
-      project: 'All Tasks',
+      project: 'Default',
     });
   }
 
@@ -44,9 +44,7 @@ function TaskModal({ projects, addTask }) {
   }
 
   const projectList = projects.map((item, i) => (
-    <option key={i} value={item.title === 'All Tasks'}>
-      {item.title}
-    </option>
+    <option key={i}>{item.title}</option>
   ));
 
   return (

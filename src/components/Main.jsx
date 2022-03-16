@@ -10,15 +10,15 @@ function Main() {
     {
       title: 'title test',
       description: 'description test',
-      dueDate: 'due date test',
+      dueDate: '2022-03-16',
       completed: false,
       priority: 0,
-      project: 'project test',
+      project: 'Default',
     },
   ]);
 
   const [projects, setProjects] = useState([
-    { title: 'All Tasks' },
+    { title: 'Default' },
     { title: 'project title 1' },
     { title: 'project title 2' },
   ]);
@@ -47,7 +47,7 @@ function Main() {
     <section>
       <div>Main</div>
       <div>{taskElements}</div>
-      <Sidebar />
+      <Sidebar tasks={tasks} projects={projects} />
       <TaskModal projects={projects} addTask={handleNewTask} />
       <ProjectModal addProject={handleNewProject} />
     </section>
