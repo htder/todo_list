@@ -15,6 +15,7 @@ function Main() {
       project: 'project test',
     },
   ]);
+
   const [projects, setProjects] = useState([
     { title: 'All Tasks' },
     { title: 'project title 1' },
@@ -33,8 +34,8 @@ function Main() {
     />
   ));
 
-  function addNewTask(task) {
-    console.log(task);
+  function handleNewTask(task) {
+    setTasks((prevTasks) => [...prevTasks, task]);
   }
 
   return (
@@ -42,7 +43,7 @@ function Main() {
       <div>Main</div>
       <div>{taskElements}</div>
       <Sidebar />
-      <TaskModal projects={projects} addTask={addNewTask} />
+      <TaskModal projects={projects} addTask={handleNewTask} />
     </section>
   );
 }

@@ -26,9 +26,9 @@ function TaskModal({ projects, addTask }) {
       dueDate: form.dueDate,
       completed: form.completed,
       priority: form.priority,
-      project: form.project
+      project: form.project,
     };
-    console.log(task);
+    addTask(task);
   }
 
   const projectList = projects.map((item, i) => (
