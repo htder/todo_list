@@ -1,11 +1,6 @@
-function Todo({
-  title,
-  description,
-  dueDate,
-  completed,
-  priority,
-  project 
-}) {
+import React from 'react';
+
+function Todo({ title, description, dueDate, completed, priority, project }) {
   return (
     <div>
       <p>Title: {title}</p>
@@ -16,6 +11,6 @@ function Todo({
       <p>Project: {project}</p>
     </div>
   );
-};
+}
 
 export default Todo;
