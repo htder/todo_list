@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Todo from './Todo';
 import TaskModal from './modals/TaskModal';
+import ProjectModal from './modals/ProjectModal';
 
 function Main() {
   const [tasks, setTasks] = useState([
@@ -38,12 +39,17 @@ function Main() {
     setTasks((prevTasks) => [...prevTasks, task]);
   }
 
+  function handleNewProject(project) {
+    setProjects((prevProjects) => [...prevProjects, project]);
+  }
+
   return (
     <section>
       <div>Main</div>
       <div>{taskElements}</div>
       <Sidebar />
       <TaskModal projects={projects} addTask={handleNewTask} />
+      <ProjectModal addProject={handleNewProject} />
     </section>
   );
 }
