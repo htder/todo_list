@@ -2,7 +2,6 @@ import React from 'react';
 import { format, isThisWeek, isThisMonth, parseISO } from 'date-fns';
 
 function Sidebar({ tasks, projects }) {
-
   function countOccurancesProject(projectName) {
     let count = 0;
     tasks.forEach((item) => {
