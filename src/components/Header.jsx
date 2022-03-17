@@ -5,7 +5,7 @@ import { FiMenu } from 'react-icons/fi';
 
 function Header({ isOpen, toggle }) {
   return (
-    <div>
+    <div className="header">
       <button className="menu-button" onClick={toggle}>
         {isOpen ? <MdClose /> : <FiMenu />}
       </button>

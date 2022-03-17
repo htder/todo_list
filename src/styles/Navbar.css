@@ -1,0 +1,21 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  display: none;
+}
+
+.show-menu {
+  display: block;
+  position: relative;
+  height: 90vh;
+  z-index: 1;
+}
+
+.navigation ul {
+  width: 100%;
+  padding-left: 1rem;
+}
+.navigation ul li {
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}

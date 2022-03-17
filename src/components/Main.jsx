@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { format, isThisWeek, isThisMonth, parseISO } from 'date-fns';
 import { nanoid } from 'nanoid';
-import '../styles/Header.css';
 
 import Navbar from './Navbar';
 import TaskModal from './modals/TaskModal';
@@ -36,13 +35,16 @@ function Main() {
   const [monthCount, setMonthCount] = useState(0);
 
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [showTasks, setShowTasks] = useState(true);
 
   function handleToggle() {
     setNavbarOpen(!navbarOpen);
+    setShowTasks(!showTasks);
   }
 
   function handleMenuClick(event, type) {
     setNavbarOpen(false);
+    setShowTasks(true);
     handleSidebarClick(event, type);
   }
 
@@ -183,7 +185,7 @@ function Main() {
 
   return (
     <section>
-      <div className="header">
+      <div>
         <Header isOpen={navbarOpen} toggle={handleToggle} />
         <Navbar
           handleClick={handleMenuClick}
@@ -195,7 +197,7 @@ function Main() {
           // toggle={handleToggle}
         />
       </div>
-      <TaskWindow className="task-window" tasks={currentTasks} />
+      <TaskWindow className="task-window" tasks={currentTasks} show={showTasks} />
       <TaskModal projects={projects} addTask={handleNewTask} />
       <ProjectModal addProject={handleNewProject} />
     </section>
