@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { format, isThisWeek, isThisMonth, parseISO } from 'date-fns';
 import { nanoid } from 'nanoid';
-import '../styles/main.css';
+import '../styles/Header.css';
 
-import Sidebar from './Sidebar';
+import Navbar from './Navbar';
 import TaskModal from './modals/TaskModal';
 import ProjectModal from './modals/ProjectModal';
 import TaskWindow from './TaskWindow';
+import Header from './Header';
 
 function Main() {
   const [tasks, setTasks] = useState([
@@ -182,17 +183,19 @@ function Main() {
 
   return (
     <section>
+      <div className="header">
+        <Header isOpen={navbarOpen} toggle={handleToggle} />
+        <Navbar
+          handleClick={handleMenuClick}
+          today={todayCount}
+          week={weekCount}
+          month={monthCount}
+          projects={projectElements}
+          isOpen={navbarOpen}
+          // toggle={handleToggle}
+        />
+      </div>
       <TaskWindow className="task-window" tasks={currentTasks} />
-      <Sidebar
-        className="sidebar"
-        handleClick={handleMenuClick}
-        today={todayCount}
-        week={weekCount}
-        month={monthCount}
-        projects={projectElements}
-        isOpen={navbarOpen}
-        toggle={handleToggle}
-      />
       <TaskModal projects={projects} addTask={handleNewTask} />
       <ProjectModal addProject={handleNewProject} />
     </section>
