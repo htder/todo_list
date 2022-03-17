@@ -1,14 +1,28 @@
 .navigation {
-  display: flex;
-  justify-content: center;
-  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 95vh;
+  transform: translateX(-103%);
+  transition: transform 300ms linear;
 }
 
 .show-menu {
-  display: block;
   position: relative;
   height: 95vh;
-  z-index: 1;
+  left: 0;
+  top: 0;
+  transform: none;
+}
+
+.hide-menu {
+  position: relative;
+  transform: translateX(-103%);
+  transition: transform 300ms linear;
+  height: 0vh;
+  left: 0;
+  top: 0;
 }
 
 .navigation ul {

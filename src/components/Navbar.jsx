@@ -3,7 +3,7 @@ import '../styles/Navbar.css';
 
 function Navbar({ today, week, month, projects, handleClick, isOpen }) {
   return (
-    <nav className={`navigation ${isOpen ? ' show-menu' : ''}`}>
+    <nav className={`navigation ${isOpen ? ' show-menu' : ' hide-menu'}`}>
       <ul className="menu-list">
         <li onClick={() => handleClick(event, 'all')}>All Tasks</li>
         <li onClick={() => handleClick(event, 'today')}>Today {today}</li>

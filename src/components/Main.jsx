@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { format, isThisWeek, isThisMonth, parseISO } from 'date-fns';
 import { nanoid } from 'nanoid';
 
-import '../styles/Main.css'; 
+import '../styles/Main.css';
 
 import Navbar from './Navbar';
 import TaskModal from './modals/TaskModal';
@@ -45,9 +45,9 @@ function Main() {
   }
 
   function handleMenuClick(event, type) {
-    setNavbarOpen(false);
-    setShowTasks(true);
     handleSidebarClick(event, type);
+    setShowTasks(true);
+    setNavbarOpen(false);
   }
 
   function increaseCount(task) {
@@ -159,9 +159,9 @@ function Main() {
   }
 
   function handleSidebarProjectClick(type) {
-    setNavbarOpen(false);
     setCurrentView(type);
     setCurrentTasks(getProjectTasks(type));
+    setNavbarOpen(false);
   }
 
   function countOccurancesProject(projectName) {
@@ -199,7 +199,11 @@ function Main() {
           // toggle={handleToggle}
         />
       </div>
-      <TaskWindow className="task-window" tasks={currentTasks} show={showTasks} />
+      <TaskWindow
+        className="task-window"
+        tasks={currentTasks}
+        show={showTasks}
+      />
       <TaskModal projects={projects} addTask={handleNewTask} />
       <ProjectModal addProject={handleNewProject} />
     </section>
