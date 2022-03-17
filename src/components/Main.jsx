@@ -55,6 +55,9 @@ function Main() {
 
   function updateCurrentTasks(task) {
     const currentDate = format(new Date(), 'yyyy-MM-dd');
+    if (currentView === 'all') {
+      setCurrentTasks([...currentTasks, task]);
+    }
     if (task.dueDate === currentDate && currentView === 'today') {
       setCurrentTasks([...currentTasks, task]);
     }
@@ -108,7 +111,10 @@ function Main() {
   }
 
   function handleSidebarClick(event, type) {
-    console.log(event, type);
+    if (type === 'all') {
+      setCurrentView('all');
+      setCurrentTasks(tasks);
+    }
     if (type === 'today') {
       setCurrentView('today');
       setCurrentTasks(getTodaysTasks());
