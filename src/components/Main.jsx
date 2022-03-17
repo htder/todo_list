@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { format, isThisWeek, isThisMonth, parseISO } from 'date-fns';
 import { nanoid } from 'nanoid';
 
+import '../styles/Main.css'; 
+
 import Navbar from './Navbar';
 import TaskModal from './modals/TaskModal';
 import ProjectModal from './modals/ProjectModal';
