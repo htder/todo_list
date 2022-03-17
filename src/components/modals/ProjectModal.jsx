@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../styles/ProjectModal.css';
 
 function ProjectModal({ addProject }) {
   const [project, setProject] = useState({
@@ -23,7 +24,7 @@ function ProjectModal({ addProject }) {
   }
 
   return (
-    <div id="modalSignin">
+    <div className="project-modal">
       <div role="document">
         <div>
           <div>

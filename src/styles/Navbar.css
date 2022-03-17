@@ -10,9 +10,10 @@
   overflow-y: scroll;
   list-style: none;
   overflow: hidden;
+  width: 0%;
 }
 
-.menu-nav.show-menu {
+.show-menu {
   width: 100%;
 }
 

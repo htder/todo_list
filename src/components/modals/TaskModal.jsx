@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
+import '../../styles/TaskModal.css';
 
 function TaskModal({ projects, addTask }) {
   const [form, setForm] = useState({
@@ -49,7 +50,7 @@ function TaskModal({ projects, addTask }) {
   ));
 
   return (
-    <div>
+    <div className="task-modal">
       <div>
         <div>
           <div>
