@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { format, isThisWeek, isThisMonth, parseISO } from 'date-fns';
 import { nanoid } from 'nanoid';
+import '../styles/main.css';
 
 import Sidebar from './Sidebar';
 import TaskModal from './modals/TaskModal';
@@ -32,6 +33,17 @@ function Main() {
   const [todayCount, setTodayCount] = useState(0);
   const [weekCount, setWeekCount] = useState(0);
   const [monthCount, setMonthCount] = useState(0);
+
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
+  function handleToggle() {
+    setNavbarOpen(!navbarOpen);
+  }
+
+  function handleMenuClick(event, type) {
+    setNavbarOpen(false);
+    handleSidebarClick(event, type);
+  }
 
   function increaseCount(task) {
     const currentDate = format(new Date(), 'yyyy-MM-dd');
@@ -142,6 +154,7 @@ function Main() {
   }
 
   function handleSidebarProjectClick(type) {
+    setNavbarOpen(false);
     setCurrentView(type);
     setCurrentTasks(getProjectTasks(type));
   }
@@ -159,9 +172,9 @@ function Main() {
   const projectElements = projects.map((item) => {
     if (item.title !== 'Default') {
       return (
-        <p key={item.id} onClick={() => handleSidebarProjectClick(item.title)}>
+        <li key={item.id} onClick={() => handleSidebarProjectClick(item.title)}>
           {item.title} {countOccurancesProject(item.title)}
-        </p>
+        </li>
       );
     }
     return undefined;
@@ -169,15 +182,16 @@ function Main() {
 
   return (
     <section>
-      <div>Main</div>
-      {/* <div>{taskElements}</div> */}
-      <TaskWindow tasks={currentTasks} />
+      <TaskWindow className="task-window" tasks={currentTasks} />
       <Sidebar
-        handleClick={handleSidebarClick}
+        className="sidebar"
+        handleClick={handleMenuClick}
         today={todayCount}
         week={weekCount}
         month={monthCount}
         projects={projectElements}
+        isOpen={navbarOpen}
+        toggle={handleToggle}
       />
       <TaskModal projects={projects} addTask={handleNewTask} />
       <ProjectModal addProject={handleNewProject} />

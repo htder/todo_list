@@ -14,7 +14,7 @@ function TaskWindow({ tasks }) {
     />
   ));
 
-  return <div>{taskElements}</div>;
+  return <div className="task-window">{taskElements}</div>;
 }
 
 export default TaskWindow;

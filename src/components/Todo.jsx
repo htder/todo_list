@@ -6,9 +6,9 @@ function Todo({ title, description, dueDate, completed, priority, project }) {
       <p>Title: {title}</p>
       <p>Description: {description}</p>
       <p>Due Date: {dueDate}</p>
-      <p>Completed: {completed}</p>
+      {/* <p>Completed: {completed}</p> */}
       <p>Priority: {priority}</p>
-      <p>Project: {project}</p>
+      {/* <p>Project: {project}</p> */}
     </div>
   );
 }
