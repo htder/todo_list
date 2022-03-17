@@ -67,6 +67,9 @@ function Main() {
     if (isThisMonth(parseISO(task.dueDate)) && currentView === 'month') {
       setCurrentTasks([...currentTasks, task]);
     }
+    if (task.project === currentView) {
+      setCurrentTasks([...currentTasks, task]);
+    }
   }
 
   function handleNewTask(task) {
