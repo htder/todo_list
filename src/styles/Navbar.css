@@ -1,7 +1,7 @@
 .navigation {
-  position: fixed;
-  left: 0;
-  top: 0;
+  /* position: fixed; */
+  /* left: 0; */
+  /* top: 0; */
   width: 100vw;
   height: 95vh;
   transform: translateX(-103%);
@@ -29,6 +29,7 @@
   width: 100%;
   padding-left: 1rem;
 }
+
 .navigation ul li {
   width: 100%;
   padding: 0.5rem 0.5rem 0.5rem 0;
