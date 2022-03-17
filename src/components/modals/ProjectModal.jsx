@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/ProjectModal.css';
 
-function ProjectModal({ addProject }) {
+function ProjectModal({ addProject, toggleModal }) {
   const [project, setProject] = useState({
     title: '',
   });
@@ -29,7 +29,7 @@ function ProjectModal({ addProject }) {
         <div>
           <div>
             <h2>Add a new project!</h2>
-            <button type="button">Close</button>
+            <button type="button" onClick={() => toggleModal()}>Close</button>
           </div>
 
           <div>

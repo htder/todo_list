@@ -38,6 +38,16 @@ function Main() {
 
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [showTasks, setShowTasks] = useState(true);
+  const [projectModalOpen, setProjectModalOpen] = useState(false);
+  const [taskModalOpen, setTaskModalOpen] = useState(false);
+
+  function toggleProjectModal() {
+    setProjectModalOpen(!projectModalOpen);
+  }
+
+  function toggleTaskModal() {
+    setTaskModalOpen(!taskModalOpen);
+  }
 
   function handleToggle() {
     setNavbarOpen(!navbarOpen);
@@ -196,6 +206,7 @@ function Main() {
           month={monthCount}
           projects={projectElements}
           isOpen={navbarOpen}
+          toggleModal={toggleProjectModal}
         />
       </div>
       <TaskWindow
@@ -203,8 +214,8 @@ function Main() {
         tasks={currentTasks}
         show={showTasks}
       />
-      <TaskModal projects={projects} addTask={handleNewTask} />
-      <ProjectModal addProject={handleNewProject} />
+      {taskModalOpen && <TaskModal projects={projects} addTask={handleNewTask} />}
+      {projectModalOpen && <ProjectModal addProject={handleNewProject} toggleModal={toggleProjectModal}/>}
     </section>
   );
 }

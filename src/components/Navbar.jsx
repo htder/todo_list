@@ -1,7 +1,15 @@
 import React from 'react';
 import '../styles/Navbar.css';
 
-function Navbar({ today, week, month, projects, handleClick, isOpen }) {
+function Navbar({
+  today,
+  week,
+  month,
+  projects,
+  handleClick,
+  isOpen,
+  toggleModal,
+}) {
   return (
     <nav className={`navigation ${isOpen ? ' show-menu' : ' hide-menu'}`}>
       <ul className="menu-list">
@@ -10,6 +18,7 @@ function Navbar({ today, week, month, projects, handleClick, isOpen }) {
         <li onClick={() => handleClick(event, 'week')}>This Week {week}</li>
         <li onClick={() => handleClick(event, 'month')}>This Month {month}</li>
         {projects}
+        <li onClick={() => toggleModal()}>Add New Project</li>
       </ul>
     </nav>
   );
