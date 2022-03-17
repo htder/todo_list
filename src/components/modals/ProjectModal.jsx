@@ -23,13 +23,18 @@ function ProjectModal({ addProject, toggleModal }) {
     addProject(newProject);
   }
 
+  function handleClose() {
+    toggleModal();
+    clearForm();
+  }
+
   return (
     <div className="project-modal">
       <div role="document">
         <div>
           <div>
             <h2>Add a new project!</h2>
-            <button type="button" onClick={() => toggleModal()}>Close</button>
+            <button type="button" onClick={() => handleClose()}>Close</button>
           </div>
 
           <div>
