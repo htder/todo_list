@@ -3,7 +3,7 @@ import React from 'react';
 function Sidebar({ today, week, month, projects, handleClick }) {
   return (
     <aside>
-      <p onClick={(event) => handleClick(event, 'all')}>All Tasks</p>
+      <p onClick={(event) => handleClick(event, "all")}>All Tasks</p>
       <p onClick={(event) => handleClick(event, 'today')}>Today {today}</p>
       <p onClick={(event) => handleClick(event, 'week')}>This Week {week}</p>
       <p onClick={(event) => handleClick(event, 'month')}>This Month {month}</p>

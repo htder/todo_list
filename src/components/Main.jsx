@@ -3,7 +3,6 @@ import { format, isThisWeek, isThisMonth, parseISO } from 'date-fns';
 import { nanoid } from 'nanoid';
 
 import Sidebar from './Sidebar';
-import Todo from './Todo';
 import TaskModal from './modals/TaskModal';
 import ProjectModal from './modals/ProjectModal';
 import TaskWindow from './TaskWindow';
@@ -143,7 +142,6 @@ function Main() {
   }
 
   function handleSidebarProjectClick(type) {
-    console.log(type);
     setCurrentView(type);
     setCurrentTasks(getProjectTasks(type));
   }
@@ -166,19 +164,8 @@ function Main() {
         </p>
       );
     }
+    return undefined;
   });
-
-  const taskElements = tasks.map((task) => (
-    <Todo
-      title={task.title}
-      description={task.description}
-      dueDate={task.dueDate}
-      completed={task.completed}
-      priority={task.priority}
-      project={task.project}
-      key={task.id}
-    />
-  ));
 
   return (
     <section>
