@@ -1,11 +1,6 @@
 .navigation {
-  /* position: fixed; */
-  /* left: 0; */
-  /* top: 0; */
   width: 100vw;
-  height: 95vh;
-  transform: translateX(-103%);
-  transition: transform 300ms linear;
+  transition: transform 200ms linear;
 }
 
 .show-menu {
@@ -17,12 +12,12 @@
 }
 
 .hide-menu {
-  position: relative;
+  position: absolute;
   transform: translateX(-103%);
-  transition: transform 300ms linear;
-  height: 0vh;
+  transition: transform 200ms linear;
+  height: 95vh;
   left: 0;
-  top: 0;
+  top: 5vh;
 }
 
 .navigation ul {

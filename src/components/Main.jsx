@@ -196,7 +196,6 @@ function Main() {
           month={monthCount}
           projects={projectElements}
           isOpen={navbarOpen}
-          // toggle={handleToggle}
         />
       </div>
       <TaskWindow
