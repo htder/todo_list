@@ -129,6 +129,22 @@ function Main() {
     }
   }
 
+  function getProjectTasks(projectName) {
+    let projectTasks = [];
+    tasks.forEach((task) => {
+      if (task.project === projectName) {
+        projectTasks = [...projectTasks, task];
+      }
+    });
+    return projectTasks;
+  }
+
+  function handleSidebarProjectClick(type) {
+    console.log(type);
+    setCurrentView(type);
+    setCurrentTasks(getProjectTasks(type));
+  }
+
   function countOccurancesProject(projectName) {
     let count = 0;
     tasks.forEach((item) => {
@@ -142,7 +158,7 @@ function Main() {
   const projectElements = projects.map((item) => {
     if (item.title !== 'Default') {
       return (
-        <p key={item.id}>
+        <p key={item.id} onClick={() => handleSidebarProjectClick(item.title)}>
           {item.title} {countOccurancesProject(item.title)}
         </p>
       );
