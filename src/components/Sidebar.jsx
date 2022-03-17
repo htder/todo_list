@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Sidebar({ today, week, month, projects }) {
+function Sidebar({ today, week, month, projects, handleClick }) {
   return (
     <aside>
       <p>All Tasks</p>
-      <p>Today {today}</p>
-      <p>This Week {week}</p>
-      <p>This Month {month}</p>
+      <p onClick={(event) => handleClick(event, 'today')}>Today {today}</p>
+      <p onClick={(event) => handleClick(event, 'week')}>This Week {week}</p>
+      <p onClick={(event) => handleClick(event, 'month')}>This Month {month}</p>
       {projects}
     </aside>
   );

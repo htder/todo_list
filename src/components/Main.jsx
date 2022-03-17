@@ -6,13 +6,14 @@ import Sidebar from './Sidebar';
 import Todo from './Todo';
 import TaskModal from './modals/TaskModal';
 import ProjectModal from './modals/ProjectModal';
+import TaskWindow from './TaskWindow';
 
 function Main() {
   const [tasks, setTasks] = useState([
     {
       title: 'title test',
       description: 'description test',
-      dueDate: '2022-03-16',
+      dueDate: '2022-03-17',
       completed: false,
       priority: 'low',
       project: 'Default',
@@ -25,6 +26,9 @@ function Main() {
     { title: 'project title 1', id: nanoid() },
     { title: 'project title 2', id: nanoid() },
   ]);
+
+  const [currentTasks, setCurrentTasks] = useState([]);
+  const [currentView, setCurrentView] = useState('');
 
   const [todayCount, setTodayCount] = useState(0);
   const [weekCount, setWeekCount] = useState(0);
@@ -49,13 +53,74 @@ function Main() {
     });
   }, []);
 
+  function updateCurrentTasks(task) {
+    const currentDate = format(new Date(), 'yyyy-MM-dd');
+    if (task.dueDate === currentDate && currentView === 'today') {
+      setCurrentTasks([...currentTasks, task]);
+    }
+    if (isThisWeek(parseISO(task.dueDate)) && currentView === 'week') {
+      setCurrentTasks([...currentTasks, task]);
+    }
+    if (isThisMonth(parseISO(task.dueDate)) && currentView === 'month') {
+      setCurrentTasks([...currentTasks, task]);
+    }
+  }
+
   function handleNewTask(task) {
     setTasks((prevTasks) => [...prevTasks, task]);
     increaseCount(task);
+    updateCurrentTasks(task);
   }
 
   function handleNewProject(project) {
     setProjects((prevProjects) => [...prevProjects, project]);
+  }
+
+  function getTodaysTasks() {
+    const currentDate = format(new Date(), 'yyyy-MM-dd');
+    let todaysTasks = [];
+    tasks.forEach((task) => {
+      if (task.dueDate === currentDate) {
+        todaysTasks = [...todaysTasks, task];
+      }
+    });
+    return todaysTasks;
+  }
+
+  function getWeeksTasks() {
+    let weeksTasks = [];
+    tasks.forEach((task) => {
+      if (isThisWeek(parseISO(task.dueDate))) {
+        weeksTasks = [...weeksTasks, task];
+      }
+    });
+    return weeksTasks;
+  }
+
+  function getMonthsTasks() {
+    let monthsTasks = [];
+    tasks.forEach((task) => {
+      if (isThisMonth(parseISO(task.dueDate))) {
+        monthsTasks = [...monthsTasks, task];
+      }
+    });
+    return monthsTasks;
+  }
+
+  function handleSidebarClick(event, type) {
+    console.log(event, type);
+    if (type === 'today') {
+      setCurrentView('today');
+      setCurrentTasks(getTodaysTasks());
+    }
+    if (type === 'week') {
+      setCurrentView('week');
+      setCurrentTasks(getWeeksTasks());
+    }
+    if (type === 'month') {
+      setCurrentView('month');
+      setCurrentTasks(getMonthsTasks());
+    }
   }
 
   function countOccurancesProject(projectName) {
@@ -93,8 +158,10 @@ function Main() {
   return (
     <section>
       <div>Main</div>
-      <div>{taskElements}</div>
+      {/* <div>{taskElements}</div> */}
+      <TaskWindow tasks={currentTasks} />
       <Sidebar
+        handleClick={handleSidebarClick}
         today={todayCount}
         week={weekCount}
         month={monthCount}
