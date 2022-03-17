@@ -29,10 +29,10 @@ function ProjectModal({ addProject, toggleModal }) {
   }
 
   return (
-    <div className="project-modal">
-      <div role="document">
-        <div>
-          <div>
+    <div className="container">
+      <div role="document" className="modal">
+        <div className="modal-content">
+          <div className="title">
             <h2>Add a new project!</h2>
             <button type="button" onClick={() => handleClose()}>Close</button>
           </div>
