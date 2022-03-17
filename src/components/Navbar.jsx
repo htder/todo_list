@@ -8,7 +8,8 @@ function Navbar({
   projects,
   handleClick,
   isOpen,
-  toggleModal,
+  toggleProjectModal,
+  toggleTaskModal,
 }) {
   return (
     <nav className={`navigation ${isOpen ? ' show-menu' : ' hide-menu'}`}>
@@ -18,7 +19,8 @@ function Navbar({
         <li onClick={() => handleClick(event, 'week')}>This Week {week}</li>
         <li onClick={() => handleClick(event, 'month')}>This Month {month}</li>
         {projects}
-        <li onClick={() => toggleModal()}>Add New Project</li>
+        <li onClick={() => toggleProjectModal()}>Add New Project</li>
+        <li onClick={() => toggleTaskModal()}>Add New Task</li>
       </ul>
     </nav>
   );

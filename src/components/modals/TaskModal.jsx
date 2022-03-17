@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import '../../styles/TaskModal.css';
 
-function TaskModal({ projects, addTask }) {
+function TaskModal({ projects, addTask, toggleModal }) {
   const [form, setForm] = useState({
     title: '',
     description: '',
@@ -45,6 +45,12 @@ function TaskModal({ projects, addTask }) {
     addTask(task);
     clearForm();
   }
+
+  function handleClose() {
+    clearForm();
+    toggleModal();
+  }
+
   const projectList = projects.map((item) => (
     <option key={item.id}>{item.title}</option>
   ));
@@ -55,7 +61,7 @@ function TaskModal({ projects, addTask }) {
         <div>
           <div>
             <h2>Add a new task!</h2>
-            <button type="button" data-bs-dismiss="modal" aria-label="Close">
+            <button type="button" onClick={() => handleClose()} data-bs-dismiss="modal" aria-label="Close">
               Close
             </button>
           </div>

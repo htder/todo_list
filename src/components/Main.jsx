@@ -206,7 +206,8 @@ function Main() {
           month={monthCount}
           projects={projectElements}
           isOpen={navbarOpen}
-          toggleModal={toggleProjectModal}
+          toggleProjectModal={toggleProjectModal}
+          toggleTaskModal={toggleTaskModal}
         />
       </div>
       <TaskWindow
@@ -214,7 +215,7 @@ function Main() {
         tasks={currentTasks}
         show={showTasks}
       />
-      {taskModalOpen && <TaskModal projects={projects} addTask={handleNewTask} />}
+      {taskModalOpen && <TaskModal projects={projects} addTask={handleNewTask} toggleModal={toggleTaskModal}/>}
       {projectModalOpen && <ProjectModal addProject={handleNewProject} toggleModal={toggleProjectModal}/>}
     </section>
   );
