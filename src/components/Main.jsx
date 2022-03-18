@@ -50,6 +50,12 @@ function Main() {
     updateCounts();
   }, [tasks]);
 
+  useEffect(() => {
+    if (currentView === 'all tasks') {
+      setCurrentTasks(tasks);
+    }
+  }, [navbarOpen]);
+
   function toggleProjectModal() {
     setProjectModalOpen(!projectModalOpen);
   }
