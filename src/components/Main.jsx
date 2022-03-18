@@ -93,6 +93,8 @@ function Main() {
     if (isThisMonth(parseISO(task.dueDate)) && currentView === 'month') {
       setCurrentTasks([...currentTasks, task]);
     }
+    console.log("current view " + currentView);
+    console.log("task.project " + task.project);
     if (task.project === currentView) {
       setCurrentTasks([...currentTasks, task]);
     }
@@ -172,6 +174,7 @@ function Main() {
     setCurrentView(type);
     setCurrentTasks(getProjectTasks(type));
     setNavbarOpen(false);
+    setShowTasks(true);
   }
 
   function countOccurancesProject(projectName) {
