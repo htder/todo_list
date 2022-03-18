@@ -59,6 +59,18 @@ function Main() {
     setShowTasks(!showTasks);
   }
 
+  function toggleCompleted(id) {
+    const index = currentTasks.findIndex((task) => task.id === id);
+    const isCompleted = currentTasks[index].completed;
+    // if (tasks.length === 1) {
+      setCurrentTasks([
+        // tasks.slice(0, index),
+        { ...currentTasks[index], completed: !isCompleted },
+        // tasks.slice(index + 1),
+      ]);
+    // }
+  }
+
   function handleMenuClick(event, type) {
     handleSidebarClick(event, type);
     setShowTasks(true);
@@ -221,6 +233,7 @@ function Main() {
         page={currentView}
         tasks={currentTasks}
         show={showTasks}
+        toggleCompleted={toggleCompleted}
       />
       {taskModalOpen && (
         <TaskModal

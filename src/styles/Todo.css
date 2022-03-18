@@ -28,3 +28,7 @@
   text-overflow: ellipsis;
   overflow: hidden
 }
+
+.completed {
+  text-decoration: line-through;
+}
