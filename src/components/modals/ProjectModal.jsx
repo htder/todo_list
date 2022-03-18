@@ -21,6 +21,7 @@ function ProjectModal({ addProject, toggleModal }) {
     const newProject = project;
     clearForm();
     addProject(newProject);
+    toggleModal();
   }
 
   function handleClose() {
@@ -34,7 +35,9 @@ function ProjectModal({ addProject, toggleModal }) {
         <div className="modal-content">
           <div className="title">
             <h2>Add a new project!</h2>
-            <button type="button" onClick={() => handleClose()}>Close</button>
+            <button type="button" onClick={() => handleClose()}>
+              Close
+            </button>
           </div>
 
           <div>

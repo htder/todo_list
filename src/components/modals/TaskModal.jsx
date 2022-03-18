@@ -44,6 +44,7 @@ function TaskModal({ projects, addTask, toggleModal }) {
     };
     addTask(task);
     clearForm();
+    toggleModal();
   }
 
   function handleClose() {
@@ -61,7 +62,12 @@ function TaskModal({ projects, addTask, toggleModal }) {
         <div className="modal-content">
           <div className="title">
             <h2>Add a new task!</h2>
-            <button type="button" onClick={() => handleClose()} data-bs-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              onClick={() => handleClose()}
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
               Close
             </button>
           </div>
