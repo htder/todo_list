@@ -34,7 +34,7 @@ function Main() {
   // const [currentView, setCurrentView] = useState('');
 
   const [currentTasks, setCurrentTasks] = useState(tasks);
-  const [currentView, setCurrentView] = useState('all');
+  const [currentView, setCurrentView] = useState('all tasks');
 
   const [todayCount, setTodayCount] = useState(0);
   const [weekCount, setWeekCount] = useState(0);
@@ -144,20 +144,20 @@ function Main() {
   }
 
   function handleSidebarClick(event, type) {
-    if (type === 'all') {
-      setCurrentView('all');
+    if (type === 'all tasks') {
+      setCurrentView('all tasks');
       setCurrentTasks(tasks);
     }
     if (type === 'today') {
       setCurrentView('today');
       setCurrentTasks(getTodaysTasks());
     }
-    if (type === 'week') {
-      setCurrentView('week');
+    if (type === 'this week') {
+      setCurrentView('this week');
       setCurrentTasks(getWeeksTasks());
     }
-    if (type === 'month') {
-      setCurrentView('month');
+    if (type === 'this month') {
+      setCurrentView('this month');
       setCurrentTasks(getMonthsTasks());
     }
   }
@@ -217,11 +217,23 @@ function Main() {
       </div>
       <TaskWindow
         className="task-window"
+        page={currentView}
         tasks={currentTasks}
         show={showTasks}
       />
-      {taskModalOpen && <TaskModal projects={projects} addTask={handleNewTask} toggleModal={toggleTaskModal}/>}
-      {projectModalOpen && <ProjectModal addProject={handleNewProject} toggleModal={toggleProjectModal}/>}
+      {taskModalOpen && (
+        <TaskModal
+          projects={projects}
+          addTask={handleNewTask}
+          toggleModal={toggleTaskModal}
+        />
+      )}
+      {projectModalOpen && (
+        <ProjectModal
+          addProject={handleNewProject}
+          toggleModal={toggleProjectModal}
+        />
+      )}
     </section>
   );
 }

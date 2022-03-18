@@ -1,7 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
 
-function TaskWindow({ tasks, show }) {
+function TaskWindow({ tasks, show, page }) {
   const taskElements = tasks.map((task) => (
     <Todo
       title={task.title}
@@ -14,7 +14,12 @@ function TaskWindow({ tasks, show }) {
     />
   ));
 
-  return <div className="task-window">{show && taskElements}</div>;
+  return (
+    <div className="task-window">
+      <h3>{page}</h3>
+      {show && taskElements}
+    </div>
+  );
 }
 
 export default TaskWindow;
