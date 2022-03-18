@@ -12,8 +12,14 @@
   justify-content: space-between;
 }
 
+.todo-middle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .todo-date {
-  text-align: center;
+  text-align: right;
 }
 
 .todo-item {
