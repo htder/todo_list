@@ -60,15 +60,19 @@ function Main() {
   }
 
   function toggleCompleted(id) {
-    const index = currentTasks.findIndex((task) => task.id === id);
-    const isCompleted = currentTasks[index].completed;
-    // if (tasks.length === 1) {
-      setCurrentTasks([
-        // tasks.slice(0, index),
-        { ...currentTasks[index], completed: !isCompleted },
-        // tasks.slice(index + 1),
-      ]);
-    // }
+    const currentTaskIndex = currentTasks.findIndex((task) => task.id === id);
+    const isCompleted = currentTasks[currentTaskIndex].completed;
+    setCurrentTasks([
+      ...currentTasks.slice(0, currentTaskIndex),
+      { ...currentTasks[currentTaskIndex], completed: !isCompleted },
+      ...currentTasks.slice(currentTaskIndex + 1),
+    ]);
+    const taskIndex = tasks.findIndex((task) => task.id === id);
+    setTasks([
+      ...tasks.slice(0, taskIndex),
+      { ...tasks[taskIndex], completed: !isCompleted },
+      ...tasks.slice(taskIndex + 1),
+    ]);
   }
 
   function handleMenuClick(event, type) {

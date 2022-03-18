@@ -28,7 +28,6 @@ function Todo({
     toggleCompleted(id);
   }
 
-  console.log(completed)
   return (
     <div className="todo-container">
       <div className="todo-top-row">
