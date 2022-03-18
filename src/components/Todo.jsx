@@ -3,10 +3,14 @@ import '../styles/Todo.css';
 
 function Todo({ title, description, dueDate, completed, priority, project }) {
   return (
-    <div>
-      <p>Title: {title}</p>
-      <p>Description: {description}</p>
-      <p>Due Date: {dueDate}</p>
+    <div className="todo-container">
+      <div className="todo-top-row">
+        <span className="todo-item todo-title">{title}</span>
+        <span className="todo-item todo-date">{dueDate}</span>
+      </div>
+      <div className="todo-middle-row">middle</div>
+      <div className="todo-bottom-row">bottom</div>
+      {/* <span className="todo-item todo-desc">{description}</span> */}
       {/* <p>Completed: {completed}</p> */}
       {/* <p>Priority: {priority}</p> */}
       {/* <p>Project: {project}</p> */}

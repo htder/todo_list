@@ -13,8 +13,9 @@ import Header from './Header';
 function Main() {
   const [tasks, setTasks] = useState([
     {
-      title: 'title test',
-      description: 'description test',
+      title:
+        'title title title title title title title title title title title title',
+      description: 'description description description',
       dueDate: '2022-03-17',
       completed: false,
       priority: 'low',
