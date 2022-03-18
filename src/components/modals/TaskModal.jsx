@@ -62,7 +62,7 @@ function TaskModal({ projects, addTask, toggleModal }) {
     <div className="container">
       <div className="modal">
         <div className="modal-content">
-          <AiOutlineFileAdd className="modal-image"/>
+          <AiOutlineFileAdd className="modal-image" />
           <div className="modal-header">
             <h2>Add a new task!</h2>
             <button
@@ -76,38 +76,39 @@ function TaskModal({ projects, addTask, toggleModal }) {
             </button>
           </div>
 
-          <div>
+          <div className="modal-body">
             <form onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="title">
-                  <input
-                    type="text"
-                    name="title"
-                    id="title"
-                    placeholder="Title"
-                    value={form.title}
-                    onChange={(event) => handleChange(event, 'title')}
-                  />
-                  Title
+              <div className="modal-input">
+                <label className="input-label" htmlFor="title">
+                  Title:{' '}
                 </label>
+                <input
+                  className="title-input"
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="Title"
+                  value={form.title}
+                  onChange={(event) => handleChange(event, 'title')}
+                />
               </div>
-              <div>
-                <label htmlFor="description">
-                  <textarea
-                    type="text"
-                    name="description"
-                    rows="5"
-                    id="description"
-                    placeholder="Description"
-                    value={form.description}
-                    onChange={(event) => handleChange(event, 'description')}
-                  />
-                  Description
+              <div className="modal-input">
+                <label className="input-label" htmlFor="description">
+                  Description:{' '}
                 </label>
+                <textarea
+                  type="text"
+                  name="description"
+                  rows="5"
+                  id="description"
+                  placeholder="Description"
+                  value={form.description}
+                  onChange={(event) => handleChange(event, 'description')}
+                />
               </div>
 
-              <div>
-                <label htmlFor="dueDate">
+              <div className="modal-input">
+                <label htmlFor="dueDate" className="modal-date">
                   <input
                     name="dueDate"
                     type="date"
@@ -115,54 +116,56 @@ function TaskModal({ projects, addTask, toggleModal }) {
                     value={form.dueDate}
                     onChange={(event) => handleChange(event, 'dueDate')}
                   />
-                  Due Date
+                  <span>Date Due</span>
                 </label>
               </div>
-              <div>
-                <label htmlFor="project">
+              <div className="modal-input">
+                <label htmlFor="project" className="modal-select">
                   <select onChange={(event) => handleChange(event, 'project')}>
                     {projectList}
                   </select>
-                  Project
+                  <span>Project</span>
                 </label>
               </div>
-              <fieldset>
-                <legend>Priority</legend>
-                <label htmlFor="radio1">
-                  <input
-                    type="radio"
-                    id="radio1"
-                    name="priority"
-                    value="high"
-                    checked={form.priority === 'high'}
-                    onChange={(event) => handleChange(event, 'priority')}
-                  />
-                  High Priority
-                </label>
-                <label htmlFor="radio2">
-                  <input
-                    type="radio"
-                    id="radio2"
-                    name="priority"
-                    value="medium"
-                    checked={form.priority === 'medium'}
-                    onChange={(event) => handleChange(event, 'priority')}
-                  />
-                  Medium Priority
-                </label>
-                <label htmlFor="radio3">
-                  <input
-                    type="radio"
-                    id="radio3"
-                    name="priority"
-                    value="low"
-                    checked={form.priority === 'low'}
-                    onChange={(event) => handleChange(event, 'priority')}
-                  />
-                  Low Priority
-                </label>
-              </fieldset>
-              <button type="submit">Submit</button>
+              <div className="modal-input">
+                <fieldset className="priority">
+                  <legend className="input-label">Priority</legend>
+                  <label htmlFor="radio1">
+                    <input
+                      type="radio"
+                      id="radio1"
+                      name="priority"
+                      value="high"
+                      checked={form.priority === 'high'}
+                      onChange={(event) => handleChange(event, 'priority')}
+                    />
+                    High Priority
+                  </label>
+                  <label htmlFor="radio2">
+                    <input
+                      type="radio"
+                      id="radio2"
+                      name="priority"
+                      value="medium"
+                      checked={form.priority === 'medium'}
+                      onChange={(event) => handleChange(event, 'priority')}
+                    />
+                    Medium Priority
+                  </label>
+                  <label htmlFor="radio3">
+                    <input
+                      type="radio"
+                      id="radio3"
+                      name="priority"
+                      value="low"
+                      checked={form.priority === 'low'}
+                      onChange={(event) => handleChange(event, 'priority')}
+                    />
+                    Low Priority
+                  </label>
+                </fieldset>
+              </div>
+              <button type="submit" className="modal-submit">Submit</button>
               <small className="titleError" />
               <small className="descError" />
               <small className="dateError" />
