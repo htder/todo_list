@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import { AiOutlineFolderAdd } from 'react-icons/ai';
 import '../../styles/ProjectModal.css';
+import { nanoid } from 'nanoid';
 
 function ProjectModal({ addProject, toggleModal }) {
   const [project, setProject] = useState({
@@ -11,6 +12,7 @@ function ProjectModal({ addProject, toggleModal }) {
   function handleChange(event) {
     setProject({
       title: event.target.value,
+      id: nanoid(),
     });
   }
 

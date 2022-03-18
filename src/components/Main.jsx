@@ -29,8 +29,12 @@ function Main() {
     { title: 'project title 2', id: nanoid() },
   ]);
 
-  const [currentTasks, setCurrentTasks] = useState([]);
-  const [currentView, setCurrentView] = useState('');
+  // Does not show all tasks on inital page
+  // const [currentTasks, setCurrentTasks] = useState([]);
+  // const [currentView, setCurrentView] = useState('');
+
+  const [currentTasks, setCurrentTasks] = useState(tasks);
+  const [currentView, setCurrentView] = useState('all');
 
   const [todayCount, setTodayCount] = useState(0);
   const [weekCount, setWeekCount] = useState(0);
@@ -93,8 +97,6 @@ function Main() {
     if (isThisMonth(parseISO(task.dueDate)) && currentView === 'month') {
       setCurrentTasks([...currentTasks, task]);
     }
-    console.log("current view " + currentView);
-    console.log("task.project " + task.project);
     if (task.project === currentView) {
       setCurrentTasks([...currentTasks, task]);
     }
