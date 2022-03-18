@@ -7,7 +7,11 @@ function Header({ isOpen, toggle }) {
   return (
     <div className="header">
       <button type="button" className="menu-button" onClick={toggle}>
-        {isOpen ? <MdClose /> : <FiMenu />}
+        {isOpen ? (
+          <MdClose className="menu-button-image" />
+        ) : (
+          <FiMenu className="menu-button-image" />
+        )}
       </button>
       <h1 className="title">TodoList</h1>
     </div>
