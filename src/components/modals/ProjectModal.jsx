@@ -32,14 +32,14 @@ function ProjectModal({ addProject, toggleModal }) {
   }
 
   return (
-    <div className="container">
-      <div role="document" className="modal">
-        <div className="modal-content">
-          <AiOutlineFolderAdd className="modal-image" />
-          <div className="modal-header">
-            <h2 className="title">Add a new project!</h2>
+    <div className="project-container">
+      <div role="document" className="project-modal">
+        <div className="project-modal-content">
+          <AiOutlineFolderAdd className="project-modal-image" />
+          <div className="project-modal-header">
+            <h2 className="project-title">Add a new project!</h2>
             <button
-              className="close-button"
+              className="project-close-button"
               type="button"
               onClick={() => handleClose()}
             >
@@ -47,15 +47,15 @@ function ProjectModal({ addProject, toggleModal }) {
             </button>
           </div>
 
-          <div className="modal-body">
+          <div className="project-modal-body">
             <form onSubmit={handleSubmit} id="new-project-form">
-              <div className="modal-input">
-                <label className="input-label" htmlFor="title">
+              <div className="project-modal-input">
+                <label className="project-input-label" htmlFor="title">
                   Name:{' '}
                 </label>
                 <input
                   name="title"
-                  className="input-text"
+                  className="project-input-text"
                   type="text"
                   id="name"
                   placeholder="Name"
@@ -63,7 +63,9 @@ function ProjectModal({ addProject, toggleModal }) {
                   value={project.title}
                 />
               </div>
-              <button className="modal-submit" type="submit">Submit</button>
+              <button className="project-modal-submit" type="submit">
+                Submit
+              </button>
             </form>
           </div>
         </div>

@@ -38,9 +38,9 @@ function Main() {
 
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [showTasks, setShowTasks] = useState(true);
-  // const [projectModalOpen, setProjectModalOpen] = useState(false);
-  const [projectModalOpen, setProjectModalOpen] = useState(true);
-  const [taskModalOpen, setTaskModalOpen] = useState(false);
+  const [projectModalOpen, setProjectModalOpen] = useState(false);
+  // const [taskModalOpen, setTaskModalOpen] = useState(false);
+  const [taskModalOpen, setTaskModalOpen] = useState(true);
 
   function toggleProjectModal() {
     setProjectModalOpen(!projectModalOpen);

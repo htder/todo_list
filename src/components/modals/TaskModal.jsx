@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
+import { AiOutlineFileAdd } from 'react-icons/ai';
+import { MdClose } from 'react-icons/md';
 import '../../styles/TaskModal.css';
 
 function TaskModal({ projects, addTask, toggleModal }) {
@@ -60,15 +62,17 @@ function TaskModal({ projects, addTask, toggleModal }) {
     <div className="container">
       <div className="modal">
         <div className="modal-content">
-          <div className="title">
+          <AiOutlineFileAdd className="modal-image"/>
+          <div className="modal-header">
             <h2>Add a new task!</h2>
             <button
               type="button"
+              className="close-button"
               onClick={() => handleClose()}
               data-bs-dismiss="modal"
               aria-label="Close"
             >
-              Close
+              <MdClose />
             </button>
           </div>
 
