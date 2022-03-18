@@ -18,7 +18,7 @@ function TaskWindow({ tasks, show, page }) {
   return (
     <div className="task-window">
       <h3 className="task-window-title">{page}</h3>
-      {show && taskElements}
+      <div className="task-window-container">{show && taskElements}</div>
     </div>
   );
 }

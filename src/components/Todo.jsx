@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Todo.css';
 
 function Todo({ title, description, dueDate, completed, priority, project }) {
   return (
@@ -7,7 +8,7 @@ function Todo({ title, description, dueDate, completed, priority, project }) {
       <p>Description: {description}</p>
       <p>Due Date: {dueDate}</p>
       {/* <p>Completed: {completed}</p> */}
-      <p>Priority: {priority}</p>
+      {/* <p>Priority: {priority}</p> */}
       {/* <p>Project: {project}</p> */}
     </div>
   );
