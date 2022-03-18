@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { MdClose } from 'react-icons/md';
+import { AiOutlineFolderAdd } from 'react-icons/ai';
 import '../../styles/ProjectModal.css';
 
 function ProjectModal({ addProject, toggleModal }) {
@@ -33,29 +35,35 @@ function ProjectModal({ addProject, toggleModal }) {
     <div className="container">
       <div role="document" className="modal">
         <div className="modal-content">
-          <div className="title">
-            <h2>Add a new project!</h2>
-            <button type="button" onClick={() => handleClose()}>
-              Close
+          <AiOutlineFolderAdd className="modal-image" />
+          <div className="modal-header">
+            <h2 className="title">Add a new project!</h2>
+            <button
+              className="close-button"
+              type="button"
+              onClick={() => handleClose()}
+            >
+              <MdClose />
             </button>
           </div>
 
-          <div>
+          <div className="modal-body">
             <form onSubmit={handleSubmit} id="new-project-form">
-              <div>
-                <label htmlFor="title">
-                  <input
-                    name="title"
-                    type="text"
-                    id="name"
-                    placeholder="Project Name"
-                    onChange={handleChange}
-                    value={project.title}
-                  />
-                  Name
+              <div className="modal-input">
+                <label className="input-label" htmlFor="title">
+                  Name:{' '}
                 </label>
+                <input
+                  name="title"
+                  className="input-text"
+                  type="text"
+                  id="name"
+                  placeholder="Name"
+                  onChange={handleChange}
+                  value={project.title}
+                />
               </div>
-              <button type="submit">Submit</button>
+              <button className="modal-submit" type="submit">Submit</button>
             </form>
           </div>
         </div>
