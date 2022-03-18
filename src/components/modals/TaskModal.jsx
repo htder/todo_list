@@ -93,21 +93,6 @@ function TaskModal({ projects, addTask, toggleModal }) {
                 />
               </div>
               <div className="modal-input">
-                <label className="input-label" htmlFor="description">
-                  Description:{' '}
-                </label>
-                <textarea
-                  type="text"
-                  name="description"
-                  rows="5"
-                  id="description"
-                  placeholder="Description"
-                  value={form.description}
-                  onChange={(event) => handleChange(event, 'description')}
-                />
-              </div>
-
-              <div className="modal-input">
                 <label htmlFor="dueDate" className="modal-date">
                   <input
                     name="dueDate"
@@ -126,6 +111,21 @@ function TaskModal({ projects, addTask, toggleModal }) {
                   </select>
                   <span>Project</span>
                 </label>
+              </div>
+              <div className="modal-input">
+                <label className="input-label" htmlFor="description">
+                  Description:{' '}
+                </label>
+                <textarea
+                  className="modal-textarea"
+                  type="text"
+                  name="description"
+                  rows="5"
+                  id="description"
+                  placeholder="Description"
+                  value={form.description}
+                  onChange={(event) => handleChange(event, 'description')}
+                />
               </div>
               <div className="modal-input">
                 <fieldset className="priority">

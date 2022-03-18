@@ -61,6 +61,10 @@
   font-size: 4rem;
 }
 
+.modal-body {
+  width: 60%;
+}
+
 .modal-input {
   width: 100%;
   padding-bottom: 0.6rem;
@@ -85,6 +89,10 @@
 .priority {
   display: flex;
   flex-direction: column;
+}
+
+.modal-textarea {
+  width: 100%;
 }
 
 .modal-select, .modal-date {
