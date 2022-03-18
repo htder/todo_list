@@ -44,7 +44,11 @@ function Todo({
         <span className="todo-item todo-date">{dueDate}</span>
       </div>
       <div className="todo-middle-row">
-        <MdCheckBoxOutlineBlank onClick={handleCheckClick} />
+        {completed ? (
+          <MdOutlineCheckBox onClick={handleCheckClick} />
+        ) : (
+          <MdCheckBoxOutlineBlank onClick={handleCheckClick} />
+        )}
         {showMore ? (
           <MdKeyboardArrowUp onClick={handleArrowClick} />
         ) : (
