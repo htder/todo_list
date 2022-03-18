@@ -2,7 +2,7 @@ import React from 'react';
 import Todo from './Todo';
 import '../styles/TaskWindow.css';
 
-function TaskWindow({ tasks, show, page, toggleCompleted }) {
+function TaskWindow({ tasks, show, page, toggleCompleted, removeTask }) {
   const taskElements = tasks.map((task) => (
     <Todo
       title={task.title}
@@ -14,6 +14,7 @@ function TaskWindow({ tasks, show, page, toggleCompleted }) {
       key={task.id}
       id={task.id}
       toggleCompleted={toggleCompleted}
+      removeTask={removeTask}
     />
   ));
 

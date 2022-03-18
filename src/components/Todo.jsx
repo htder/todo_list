@@ -17,6 +17,7 @@ function Todo({
   project,
   toggleCompleted,
   id,
+  removeTask,
 }) {
   const [showMore, setShowMore] = useState(false);
 
@@ -26,6 +27,10 @@ function Todo({
 
   function handleCheckClick() {
     toggleCompleted(id);
+  }
+
+  function handleDelete() {
+    removeTask(id);
   }
 
   return (
@@ -39,13 +44,13 @@ function Todo({
         <span className="todo-item todo-date">{dueDate}</span>
       </div>
       <div className="todo-middle-row">
-        <MdCheckBoxOutlineBlank onClick={handleCheckClick}/>
+        <MdCheckBoxOutlineBlank onClick={handleCheckClick} />
         {showMore ? (
           <MdKeyboardArrowUp onClick={handleArrowClick} />
         ) : (
           <MdKeyboardArrowDown onClick={handleArrowClick} />
         )}
-        <BsTrash />
+        <BsTrash onClick={handleDelete} />
       </div>
       {showMore && (
         <div className="todo-bottom-row">

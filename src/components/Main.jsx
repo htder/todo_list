@@ -46,6 +46,10 @@ function Main() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [taskModalOpen, setTaskModalOpen] = useState(false);
 
+  useEffect(() => {
+    updateCounts();
+  }, [tasks]);
+
   function toggleProjectModal() {
     setProjectModalOpen(!projectModalOpen);
   }
@@ -75,10 +79,41 @@ function Main() {
     ]);
   }
 
+  function removeTask(id) {
+    const currentTaskIndex = currentTasks.findIndex((task) => task.id === id);
+    setCurrentTasks([
+      ...currentTasks.slice(0, currentTaskIndex),
+      ...currentTasks.slice(currentTaskIndex + 1),
+    ]);
+    const taskIndex = tasks.findIndex((task) => task.id === id);
+    setTasks([...tasks.slice(0, taskIndex), ...tasks.slice(taskIndex + 1)]);
+  }
+
   function handleMenuClick(event, type) {
     handleSidebarClick(event, type);
     setShowTasks(true);
     setNavbarOpen(false);
+  }
+
+  function updateCounts() {
+    const currentDate = format(new Date(), 'yyyy-MM-dd');
+    let todayTotal = 0;
+    let weekTotal = 0;
+    let monthTotal = 0;
+    tasks.forEach((task) => {
+      if (task.dueDate === currentDate) {
+        todayTotal += 1;
+      }
+      if (isThisWeek(parseISO(task.dueDate))) {
+        weekTotal += 1;
+      }
+      if (isThisMonth(parseISO(task.dueDate))) {
+        monthTotal += 1;
+      }
+    });
+    setTodayCount(todayTotal);
+    setWeekCount(weekTotal);
+    setMonthCount(monthTotal);
   }
 
   function increaseCount(task) {
@@ -238,6 +273,7 @@ function Main() {
         tasks={currentTasks}
         show={showTasks}
         toggleCompleted={toggleCompleted}
+        removeTask={removeTask}
       />
       {taskModalOpen && (
         <TaskModal
