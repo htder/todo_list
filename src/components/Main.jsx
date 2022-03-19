@@ -15,7 +15,8 @@ function Main() {
     {
       title:
         'title title title title title title title title title title title title',
-      description: 'description description description',
+      description:
+        'description description description description description description description',
       dueDate: '2022-03-17',
       completed: false,
       priority: 'low',

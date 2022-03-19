@@ -13,6 +13,7 @@
 }
 
 .todo-middle-row {
+  padding-top: 0.3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,10 +34,29 @@
   text-decoration: line-through;
 }
 
+.todo-bottom-row {
+  padding: 0.3rem 1rem 1rem 1rem;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 3px;
+}
+
 .todo-bottom-description,
 .todo-bottom-project,
 .todo-bottom-priority {
   display: flex;
-  padding: 0.3rem;
+  padding: 0.2rem 0;
+  flex-direction: column;
+}
+
+.todo-bottom-header {
+  text-decoration: underline;
+}
+
+.todo-main-visible {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 1rem;
 }
 

@@ -35,39 +35,45 @@ function Todo({
 
   return (
     <div className="todo-container">
-      <div className="todo-top-row">
-        <span
-          className={`todo-item todo-title ${completed ? 'completed' : ''}`}
-        >
-          {title}
-        </span>
-        <span className="todo-item todo-date">{dueDate}</span>
-      </div>
-      <div className="todo-middle-row">
-        {completed ? (
-          <MdOutlineCheckBox onClick={handleCheckClick} />
-        ) : (
-          <MdCheckBoxOutlineBlank onClick={handleCheckClick} />
-        )}
-        {showMore ? (
-          <MdKeyboardArrowUp onClick={handleArrowClick} />
-        ) : (
-          <MdKeyboardArrowDown onClick={handleArrowClick} />
-        )}
-        <BsTrash onClick={handleDelete} />
+      <div className="todo-main-visible">
+        <div className="todo-top-row">
+          <span
+            className={`todo-item todo-title ${completed ? 'completed' : ''}`}
+          >
+            {title}
+          </span>
+          <span className="todo-item todo-date">{dueDate}</span>
+        </div>
+        <div className="todo-middle-row">
+          {completed ? (
+            <MdOutlineCheckBox onClick={handleCheckClick} />
+          ) : (
+            <MdCheckBoxOutlineBlank onClick={handleCheckClick} />
+          )}
+          {showMore ? (
+            <MdKeyboardArrowUp onClick={handleArrowClick} />
+          ) : (
+            <MdKeyboardArrowDown onClick={handleArrowClick} />
+          )}
+          <BsTrash onClick={handleDelete} />
+        </div>
       </div>
       {showMore && (
         <div className="todo-bottom-row">
+          <div className="todo-bottom-title">
+            <p className="todo-bottom-header">Title</p>
+            <p>{title}</p>
+          </div>
           <div className="todo-bottom-description">
-            <p>Description: </p>
+            <p className="todo-bottom-header">Description</p>
             <p>{description}</p>
           </div>
           <div className="todo-bottom-project">
-            <p>Project:</p>
+            <p className="todo-bottom-header">Project</p>
             <p>{project}</p>
           </div>
           <div className="todo-bottom-priority">
-            <p>Priority:</p>
+            <p className="todo-bottom-header">Priority</p>
             <p>{priority}</p>
           </div>
         </div>
