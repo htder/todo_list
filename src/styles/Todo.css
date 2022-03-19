@@ -26,9 +26,17 @@
   width: 9.5rem;
   white-space: nowrap;
   text-overflow: ellipsis;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .completed {
   text-decoration: line-through;
 }
+
+.todo-bottom-description,
+.todo-bottom-project,
+.todo-bottom-priority {
+  display: flex;
+  padding: 0.3rem;
+}
+

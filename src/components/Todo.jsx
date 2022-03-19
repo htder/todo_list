@@ -58,24 +58,20 @@ function Todo({
       </div>
       {showMore && (
         <div className="todo-bottom-row">
-          <div>
-            <p>Description</p>
+          <div className="todo-bottom-description">
+            <p>Description: </p>
             <p>{description}</p>
           </div>
-          <div>
-            <p>Project</p>
+          <div className="todo-bottom-project">
+            <p>Project:</p>
             <p>{project}</p>
           </div>
-          <div>
-            <p>Priority</p>
+          <div className="todo-bottom-priority">
+            <p>Priority:</p>
             <p>{priority}</p>
           </div>
         </div>
       )}
-      {/* <span className="todo-item todo-desc">{description}</span> */}
-      {/* <p>Completed: {completed}</p> */}
-      {/* <p>Priority: {priority}</p> */}
-      {/* <p>Project: {project}</p> */}
     </div>
   );
 }
