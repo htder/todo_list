@@ -53,6 +53,10 @@
 
 .todo-bottom-header {
   text-decoration: underline;
+  text-transform: uppercase;
+  padding-top: 0.2rem;
+  padding-bottom: 0.1rem;
+  font-size: 0.8rem;
 }
 
 .todo-main-visible {
