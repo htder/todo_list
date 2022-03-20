@@ -96,8 +96,8 @@ function Main() {
     setTasks([...tasks.slice(0, taskIndex), ...tasks.slice(taskIndex + 1)]);
   }
 
-  function handleMenuClick(event, type) {
-    handleSidebarClick(event, type);
+  function handleMenuClick(type) {
+    handleSidebarClick(type);
     setShowTasks(true);
     setNavbarOpen(false);
   }
@@ -202,7 +202,7 @@ function Main() {
     return monthsTasks;
   }
 
-  function handleSidebarClick(event, type) {
+  function handleSidebarClick(type) {
     if (type === 'all tasks') {
       setCurrentView('all tasks');
       setCurrentTasks(tasks);
