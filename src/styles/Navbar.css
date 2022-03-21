@@ -30,7 +30,7 @@
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 821px) {
   .menu-button {
     display: none;
   }
@@ -43,5 +43,9 @@
     transform: none;
     width: 15vw;
     float: left;
+  }
+
+  .navigation ul {
+    padding-left: 3rem;
   }
 }
