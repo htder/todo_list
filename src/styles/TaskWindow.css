@@ -1,6 +1,7 @@
 .task-window-title {
   text-transform: uppercase;
-  padding: 0.5rem 1rem 1rem 1rem;
+  padding: 0.3rem 1rem 1rem 6rem;
+  display: flex;
 }
 
 .task-window-container {

@@ -29,3 +29,19 @@
   width: 100%;
   padding: 0.5rem 0.5rem 0.5rem 0;
 }
+
+@media screen and (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+
+  .hide-menu {
+    position: relative;
+    height: 93vh;
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 15vw;
+    float: left;
+  }
+}

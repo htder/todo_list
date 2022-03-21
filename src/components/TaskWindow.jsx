@@ -25,12 +25,13 @@ function TaskWindow({
       toggleCompleted={toggleCompleted}
       removeTask={removeTask}
       handleEdit={handleEdit}
+      page={page}
     />
   ));
 
   return (
     <div className="task-window">
-      <h3 className="task-window-title">{page}</h3>
+      {/* <h3 className="task-window-title">{page}</h3> */}
       <div className="task-window-container">{show && taskElements}</div>
     </div>
   );
