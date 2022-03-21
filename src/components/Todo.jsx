@@ -7,6 +7,7 @@ import {
   MdKeyboardArrowUp,
 } from 'react-icons/md';
 import { BsTrash } from 'react-icons/bs';
+import EditTaskModal from './modals/EditTaskModal';
 
 function Todo({
   title,
@@ -15,11 +16,17 @@ function Todo({
   completed,
   priority,
   project,
+  projects,
   toggleCompleted,
   id,
   removeTask,
 }) {
   const [showMore, setShowMore] = useState(false);
+  const [editModalOpen, setEditModalOpen] = useState(false);
+
+  function toggleModal() {
+    setEditModalOpen(!editModalOpen);
+  }
 
   function handleArrowClick() {
     setShowMore(!showMore);
@@ -76,7 +83,21 @@ function Todo({
             <p className="todo-bottom-header">Priority</p>
             <p>{priority}</p>
           </div>
+          <button type="button" onClick={toggleModal}>
+            Edit
+          </button>
         </div>
+      )}
+      {editModalOpen && (
+        <EditTaskModal
+          projects={projects}
+          closeModal={toggleModal}
+          todoTitle={title}
+          todoDescription={description}
+          todoDueDate={dueDate}
+          todoPriority={priority}
+          todoProject={project}
+        />
       )}
     </div>
   );

@@ -20,7 +20,7 @@ function Main() {
       dueDate: '2022-03-17',
       completed: false,
       priority: 'low',
-      project: 'Default',
+      project: 'project title 2',
       id: nanoid(),
     },
   ]);
@@ -279,6 +279,7 @@ function Main() {
         page={currentView}
         tasks={currentTasks}
         show={showTasks}
+        projects={projects}
         toggleCompleted={toggleCompleted}
         removeTask={removeTask}
       />
