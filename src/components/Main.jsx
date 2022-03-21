@@ -248,6 +248,11 @@ function Main() {
     return count;
   }
 
+  function handleEdit(id, form) {
+    console.log(id);
+    console.log(form);
+  }
+
   const projectElements = projects.map((item) => {
     if (item.title !== 'Default') {
       return (
@@ -282,6 +287,7 @@ function Main() {
         projects={projects}
         toggleCompleted={toggleCompleted}
         removeTask={removeTask}
+        handleEdit={handleEdit}
       />
       {taskModalOpen && (
         <TaskModal

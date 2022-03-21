@@ -11,6 +11,8 @@ function EditTaskModal({
   todoDueDate,
   todoPriority,
   todoProject,
+  edit,
+  id,
 }) {
   const [form, setForm] = useState({
     title: todoTitle,
@@ -48,6 +50,11 @@ function EditTaskModal({
   function handleClose() {
     closeModal();
     // clearForm();
+  }
+
+  function handleEdit() {
+    edit(id, form);
+    closeModal();
   }
 
   const projectList = projects.map((item) => (
@@ -164,7 +171,11 @@ function EditTaskModal({
                   </label>
                 </fieldset>
               </div>
-              <button type="submit" className="modal-submit">
+              <button
+                type="submit"
+                className="modal-submit"
+                onClick={handleEdit}
+              >
                 Submit
               </button>
               <small className="titleError" />

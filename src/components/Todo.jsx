@@ -20,6 +20,7 @@ function Todo({
   toggleCompleted,
   id,
   removeTask,
+  handleEdit,
 }) {
   const [showMore, setShowMore] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -97,6 +98,8 @@ function Todo({
           todoDueDate={dueDate}
           todoPriority={priority}
           todoProject={project}
+          edit={handleEdit}
+          id={id}
         />
       )}
     </div>
