@@ -42,17 +42,13 @@ function EditTaskModal({
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    clearForm();
-  }
-
   function handleClose() {
     closeModal();
     // clearForm();
   }
 
-  function handleEdit() {
+  function handleEdit(event) {
+    event.preventDefault();
     edit(id, form);
     closeModal();
   }
@@ -80,7 +76,7 @@ function EditTaskModal({
           </div>
 
           <div className="modal-body">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleEdit}>
               <div className="modal-input">
                 <label className="input-label" htmlFor="title">
                   Title:{' '}
