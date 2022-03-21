@@ -249,8 +249,32 @@ function Main() {
   }
 
   function handleEdit(id, form) {
-    console.log(id);
-    console.log(form);
+    const currentTaskIndex = currentTasks.findIndex((task) => task.id === id);
+    setCurrentTasks([
+      ...currentTasks.slice(0, currentTaskIndex),
+      {
+        ...currentTasks[currentTaskIndex],
+        title: form.title,
+        description: form.description,
+        dueDate: form.dueDate,
+        priority: form.priority,
+        project: form.project,
+      },
+      ...currentTasks.slice(currentTaskIndex + 1),
+    ]);
+    const taskIndex = tasks.findIndex((task) => task.id === id);
+    setTasks([
+      ...tasks.slice(0, taskIndex),
+      {
+        ...tasks[taskIndex],
+        title: form.title,
+        description: form.description,
+        dueDate: form.dueDate,
+        priority: form.priority,
+        project: form.project,
+      },
+      ...tasks.slice(taskIndex + 1),
+    ]);
   }
 
   const projectElements = projects.map((item) => {

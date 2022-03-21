@@ -25,12 +25,13 @@ function Todo({
   const [showMore, setShowMore] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
 
-  function toggleModal() {
-    setEditModalOpen(!editModalOpen);
-  }
-
   function handleArrowClick() {
     setShowMore(!showMore);
+  }
+
+  function toggleModal() {
+    setEditModalOpen(!editModalOpen);
+    setShowMore(false);
   }
 
   function handleCheckClick() {
