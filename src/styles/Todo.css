@@ -69,3 +69,12 @@
   text-transform: uppercase;
   padding: 0 0 1rem 0 ;
 }
+
+.no-tasks {
+  display: flex;
+  flex-direction:column;
+}
+
+.no-tasks span {
+  padding: 0.1rem 0;
+}
