@@ -18,8 +18,9 @@ function TaskWindow({
   removeTask,
   handleEdit,
 }) {
-  const taskElements = tasks.map((task) => (
+  const taskElements = tasks.map((task, i) => (
     <Todo
+      index={i}
       title={task.title}
       description={task.description}
       dueDate={task.dueDate}

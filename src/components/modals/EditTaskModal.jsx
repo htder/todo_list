@@ -172,7 +172,7 @@ function EditTaskModal({
                 </fieldset>
               </div>
               <button
-                type="button"
+                type="submit"
                 className="modal-submit"
                 onClick={handleEdit}
               >

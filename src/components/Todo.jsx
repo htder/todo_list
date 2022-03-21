@@ -22,6 +22,7 @@ function Todo({
   removeTask,
   handleEdit,
   page,
+  index,
 }) {
   const [showMore, setShowMore] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -45,7 +46,7 @@ function Todo({
 
   return (
     <div className="todo-container">
-      <h3 className="todo-container-title">{page}</h3>
+      {index === 0 && <h3 className="todo-container-title">{page}</h3>}
       <div className="todo-main-visible">
         <div className="todo-top-row">
           <span
