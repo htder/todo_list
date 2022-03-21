@@ -49,3 +49,13 @@
     padding-left: 3rem;
   }
 }
+
+.navbar-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-image {
+  margin-right: 0.6rem;
+}

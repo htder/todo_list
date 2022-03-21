@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { format, isThisWeek, isThisMonth, parseISO } from 'date-fns';
 import { nanoid } from 'nanoid';
+import { BsClipboardData } from 'react-icons/bs';
 
 import '../styles/Main.css';
 
@@ -280,8 +281,13 @@ function Main() {
   const projectElements = projects.map((item) => {
     if (item.title !== 'Default') {
       return (
-        <li key={item.id} onClick={() => handleSidebarProjectClick(item.title)}>
-          {item.title} {countOccurancesProject(item.title)}
+        <li
+          key={item.id}
+          className="navbar-item"
+          onClick={() => handleSidebarProjectClick(item.title)}
+        >
+          <BsClipboardData className="navbar-image" /> {item.title}{' '}
+          {countOccurancesProject(item.title)}
         </li>
       );
     }

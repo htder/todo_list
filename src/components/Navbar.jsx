@@ -1,5 +1,12 @@
 import React from 'react';
 import '../styles/Navbar.css';
+import {
+  BsBoxSeam,
+  BsCalendar3Event,
+  BsCalendar3Week,
+  BsCalendar3,
+  BsCalendarPlus,
+} from 'react-icons/bs';
 
 function Navbar({
   today,
@@ -14,13 +21,26 @@ function Navbar({
   return (
     <nav className={`navigation ${isOpen ? ' show-menu' : ' hide-menu'}`}>
       <ul className="menu-list">
-        <li onClick={() => handleClick('all tasks')}>All Tasks</li>
-        <li onClick={() => handleClick('today')}>Today {today}</li>
-        <li onClick={() => handleClick('this week')}>This Week {week}</li>
-        <li onClick={() => handleClick('this month')}>This Month {month}</li>
+        <li className="navbar-item" onClick={() => handleClick('all tasks')}>
+          <BsBoxSeam className="navbar-image" /> All Tasks
+        </li>
+        <li className="navbar-item" onClick={() => handleClick('today')}>
+          {' '}
+          <BsCalendar3Event className="navbar-image" /> Today {today}
+        </li>
+        <li className="navbar-item" onClick={() => handleClick('this week')}>
+          <BsCalendar3Week className="navbar-image" /> This Week {week}
+        </li>
+        <li className="navbar-item" onClick={() => handleClick('this month')}>
+          <BsCalendar3 className="navbar-image" /> This Month {month}
+        </li>
         {projects}
-        <li onClick={() => toggleProjectModal()}>Add New Project</li>
-        <li onClick={() => toggleTaskModal()}>Add New Task</li>
+        <li className="navbar-item" onClick={() => toggleProjectModal()}>
+          <BsCalendarPlus className="navbar-image" /> Add New Project
+        </li>
+        <li className="navbar-item" onClick={() => toggleTaskModal()}>
+          <BsCalendarPlus className="navbar-image" /> Add New Task
+        </li>
       </ul>
     </nav>
   );
