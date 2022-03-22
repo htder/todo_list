@@ -56,6 +56,13 @@
   align-items: center;
 }
 
+.navbar-item-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 70%;
+}
+
 .navbar-item:hover {
   cursor: pointer;
 }

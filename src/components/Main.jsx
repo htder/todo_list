@@ -28,7 +28,11 @@ function Main() {
 
   const [projects, setProjects] = useState([
     { title: 'Default', id: nanoid() },
-    { title: 'project title 1', id: nanoid() },
+    {
+      title:
+        'pproject title 1project title 1project title 1project title 1roject title 1',
+      id: nanoid(),
+    },
     { title: 'project title 2', id: nanoid() },
   ]);
 
@@ -286,7 +290,8 @@ function Main() {
           className="navbar-item"
           onClick={() => handleSidebarProjectClick(item.title)}
         >
-          <BsClipboardData className="navbar-image" /> {item.title}{' '}
+          <BsClipboardData className="navbar-image" />{' '}
+          <span className="navbar-item-title">{item.title}</span>
           <span className="navbar-number">
             {countOccurancesProject(item.title)}
           </span>
