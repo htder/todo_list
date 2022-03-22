@@ -29,8 +29,7 @@ function Main() {
   const [projects, setProjects] = useState([
     { title: 'Default', id: nanoid() },
     {
-      title:
-        'pproject title 1project title 1project title 1project title 1roject title 1',
+      title: 'project title 1',
       id: nanoid(),
     },
     { title: 'project title 2', id: nanoid() },
