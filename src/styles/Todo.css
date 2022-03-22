@@ -78,3 +78,7 @@
 .no-tasks span {
   padding: 0.1rem 0;
 }
+
+.todo-image:hover {
+  cursor: pointer;
+}

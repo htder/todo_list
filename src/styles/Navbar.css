@@ -56,6 +56,10 @@
   align-items: center;
 }
 
+.navbar-item:hover {
+  cursor: pointer;
+}
+
 .navbar-image {
   margin-right: 0.6rem;
 }

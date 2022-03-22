@@ -58,16 +58,28 @@ function Todo({
         </div>
         <div className="todo-middle-row">
           {completed ? (
-            <MdOutlineCheckBox onClick={handleCheckClick} />
+            <MdOutlineCheckBox
+              onClick={handleCheckClick}
+              className="todo-image"
+            />
           ) : (
-            <MdCheckBoxOutlineBlank onClick={handleCheckClick} />
+            <MdCheckBoxOutlineBlank
+              onClick={handleCheckClick}
+              className="todo-image"
+            />
           )}
           {showMore ? (
-            <MdKeyboardArrowUp onClick={handleArrowClick} />
+            <MdKeyboardArrowUp
+              onClick={handleArrowClick}
+              className="todo-image"
+            />
           ) : (
-            <MdKeyboardArrowDown onClick={handleArrowClick} />
+            <MdKeyboardArrowDown
+              onClick={handleArrowClick}
+              className="todo-image"
+            />
           )}
-          <BsTrash onClick={handleDelete} />
+          <BsTrash onClick={handleDelete} className="todo-image" />
         </div>
       </div>
       {showMore && (
