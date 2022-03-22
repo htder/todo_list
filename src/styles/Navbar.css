@@ -1,6 +1,6 @@
 .navigation {
   width: 100vw;
-  transition: transform 200ms linear;
+  transition: transform 300ms linear;
 }
 
 .show-menu {
@@ -14,7 +14,7 @@
 .hide-menu {
   position: absolute;
   transform: translateX(-103%);
-  transition: transform 200ms linear;
+  transition: transform 300ms linear;
   height: 93vh;
   left: 0;
   top: 7vh;
@@ -29,6 +29,7 @@
 .navigation ul li {
   width: 100%;
   padding: 0.5rem 0.5rem 0.5rem 0;
+  margin: 1rem 0;
 }
 
 @media screen and (min-width: 821px) {
@@ -75,6 +76,7 @@
 
 .navbar-image {
   margin-right: 0.6rem;
+  font-size: 1.6rem;
 }
 
 .navbar-number {
