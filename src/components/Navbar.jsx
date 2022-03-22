@@ -25,14 +25,16 @@ function Navbar({
           <BsBoxSeam className="navbar-image" /> All Tasks
         </li>
         <li className="navbar-item" onClick={() => handleClick('today')}>
-          {' '}
-          <BsCalendar3Event className="navbar-image" /> Today {today}
+          <BsCalendar3Event className="navbar-image" /> Today{' '}
+          <span className="navbar-number">{today}</span>
         </li>
         <li className="navbar-item" onClick={() => handleClick('this week')}>
-          <BsCalendar3Week className="navbar-image" /> This Week {week}
+          <BsCalendar3Week className="navbar-image" /> This Week
+          <span className="navbar-number">{week}</span>
         </li>
         <li className="navbar-item" onClick={() => handleClick('this month')}>
-          <BsCalendar3 className="navbar-image" /> This Month {month}
+          <BsCalendar3 className="navbar-image" /> This Month
+          <span className="navbar-number">{month}</span>
         </li>
         {projects}
         <li className="navbar-item" onClick={() => toggleProjectModal()}>

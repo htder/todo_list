@@ -287,7 +287,9 @@ function Main() {
           onClick={() => handleSidebarProjectClick(item.title)}
         >
           <BsClipboardData className="navbar-image" /> {item.title}{' '}
-          {countOccurancesProject(item.title)}
+          <span className="navbar-number">
+            {countOccurancesProject(item.title)}
+          </span>
         </li>
       );
     }

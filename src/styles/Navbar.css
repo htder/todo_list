@@ -63,3 +63,8 @@
 .navbar-image {
   margin-right: 0.6rem;
 }
+
+.navbar-number {
+  margin-left: auto;
+  margin-right: 0;
+}
