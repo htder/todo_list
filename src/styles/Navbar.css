@@ -22,7 +22,8 @@
 
 .navigation ul {
   width: 100%;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .navigation ul li {
@@ -43,10 +44,15 @@
     transform: none;
     width: 15vw;
     float: left;
+    max-width: 300px;
   }
 
   .navigation ul {
     padding-left: 3rem;
+  }
+
+  .navigation ul {
+    padding-right: 0;
   }
 }
 
@@ -74,4 +80,10 @@
 .navbar-number {
   margin-left: auto;
   margin-right: 0;
+}
+
+@media screen and (min-width: 821px) {
+  .navigation ul {
+    padding-right: 0;
+  }
 }
