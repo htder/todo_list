@@ -108,3 +108,15 @@
 .todo-bottom-title {
   padding-top: 0.2rem;
 }
+
+.high-priority {
+  border-left: 5px solid red;
+}
+
+.medium-priority {
+  border-left: 5px solid orange;
+}
+
+.low-priority {
+  border-left: 5px solid green;
+}

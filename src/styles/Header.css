@@ -27,7 +27,7 @@
   font-size: 2rem;
 }
 
-@media screen and (min-width: 821px) {
+@media screen and (min-width: 1225px) {
   .menu-button {
     display: none;
   }

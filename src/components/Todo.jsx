@@ -47,7 +47,7 @@ function Todo({
   return (
     <div className="todo-container">
       {index === 0 && <h3 className="todo-container-title">{page}</h3>}
-      <div className="todo-main-visible">
+      <div className={`todo-main-visible ${priority}-priority`}>
         <div className="todo-top-row">
           <span
             className={`todo-item todo-title ${completed ? 'completed' : ''}`}
