@@ -82,3 +82,7 @@
 .todo-image:hover {
   cursor: pointer;
 }
+
+.todo-edit-button:hover {
+  cursor: pointer;
+}

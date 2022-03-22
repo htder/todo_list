@@ -95,12 +95,14 @@
   width: 100%;
 }
 
-.modal-select, .modal-date {
+.modal-select,
+.modal-date {
   display: flex;
   flex-direction: column-reverse;
 }
 
-.modal-date span, .modal-select span {
+.modal-date span,
+.modal-select span {
   padding-bottom: 0.2rem;
 }
 
@@ -110,6 +112,10 @@
   border: none;
   padding: 0.3rem;
   border-radius: 5px;
+}
+
+.modal-submit:hover {
+  cursor: pointer;
 }
 
 @keyframes animate {

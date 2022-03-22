@@ -100,7 +100,11 @@ function Todo({
             <p className="todo-bottom-header">Priority</p>
             <p>{priority}</p>
           </div>
-          <button type="button" onClick={toggleModal}>
+          <button
+            type="button"
+            onClick={toggleModal}
+            className="todo-edit-button"
+          >
             Edit
           </button>
         </div>
