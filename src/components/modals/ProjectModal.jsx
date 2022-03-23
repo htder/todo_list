@@ -8,6 +8,7 @@ function ProjectModal({ addProject, toggleModal }) {
   const [project, setProject] = useState({
     title: '',
   });
+  const [formErrors, setFormErrors] = useState({});
 
   function handleChange(event) {
     setProject({
@@ -20,9 +21,26 @@ function ProjectModal({ addProject, toggleModal }) {
     setProject({ title: '' });
   }
 
+  function validate() {
+    const errors = {};
+    let isValid = true;
+    if (project.title.length <= 2) {
+      isValid = false;
+      errors.title = 'Please enter more than two characters';
+    }
+    setFormErrors(errors);
+    return isValid;
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     const newProject = project;
+    if (validate()) {
+      console.log('pass');
+    } else {
+      console.log('fail');
+      return;
+    }
     clearForm();
     addProject(newProject);
     toggleModal();
@@ -64,6 +82,7 @@ function ProjectModal({ addProject, toggleModal }) {
                   onChange={handleChange}
                   value={project.title}
                 />
+                <p>{formErrors.title}</p>
               </div>
               <button className="project-modal-submit" type="submit">
                 Submit
