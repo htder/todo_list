@@ -62,7 +62,11 @@
 }
 
 .project-modal-input {
-  padding: 0.5rem 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 .project-input-label {
@@ -84,10 +88,15 @@
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
+.project-form-error {
+  color: red;
+  width: 100%;
+}
+
 .project-modal-submit {
   margin-top: 0.5rem;
-  width: 100%;
   border: none;
+  width: 100%;
   padding: 0.3rem;
   border-radius: 5px;
 }

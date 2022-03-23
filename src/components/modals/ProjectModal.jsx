@@ -21,7 +21,7 @@ function ProjectModal({ addProject, toggleModal }) {
     setProject({ title: '' });
   }
 
-  function validate() {
+  function validateForm() {
     const errors = {};
     let isValid = true;
     if (project.title.length <= 2) {
@@ -35,15 +35,15 @@ function ProjectModal({ addProject, toggleModal }) {
   function handleSubmit(event) {
     event.preventDefault();
     const newProject = project;
-    if (validate()) {
-      console.log('pass');
+    const isCorrectInput = validateForm();
+    if (isCorrectInput) {
+      clearForm();
+      addProject(newProject);
+      toggleModal();
     } else {
       console.log('fail');
       return;
     }
-    clearForm();
-    addProject(newProject);
-    toggleModal();
   }
 
   function handleClose() {
@@ -82,7 +82,7 @@ function ProjectModal({ addProject, toggleModal }) {
                   onChange={handleChange}
                   value={project.title}
                 />
-                <p>{formErrors.title}</p>
+                <div className="project-form-error">{formErrors.title}</div>
               </div>
               <button className="project-modal-submit" type="submit">
                 Submit
