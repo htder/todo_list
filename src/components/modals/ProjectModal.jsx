@@ -26,7 +26,7 @@ function ProjectModal({ addProject, toggleModal }) {
     let isValid = true;
     if (project.title.length <= 2) {
       isValid = false;
-      errors.title = 'Please enter more than two characters';
+      errors.title = 'Project name needs to be longer than two characters.';
     }
     setFormErrors(errors);
     return isValid;
