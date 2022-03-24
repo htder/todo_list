@@ -41,6 +41,15 @@ function TaskModal({ projects, addTask, toggleModal }) {
       isValid = false;
       errors.title = 'Task name needs to be longer than two characters';
     }
+    if (form.description.length <= 8) {
+      isValid = false;
+      errors.description =
+        'Task description needs to be longer than eight characters';
+    }
+    if (!/^d{1,2}\d{1,2}\d{4}$/.test(form.date)) {
+      isValid = false;
+      errors.date = 'Please enter a date in the dd/mm/yyyy format';
+    }
     return isValid;
   }
 
