@@ -13,6 +13,7 @@ function TaskModal({ projects, addTask, toggleModal }) {
     priority: 'low',
     project: 'Default',
   });
+  const [formErrors, setFormErrors] = useState({});
 
   function handleChange(event, type) {
     const input = event.target.value;
@@ -33,6 +34,16 @@ function TaskModal({ projects, addTask, toggleModal }) {
     });
   }
 
+  function validateForm() {
+    const errors = {};
+    let isValid = true;
+    if (form.title.length <= 2) {
+      isValid = false;
+      errors.title = 'Task name needs to be longer than two characters';
+    }
+    return isValid;
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     const task = {
@@ -44,9 +55,12 @@ function TaskModal({ projects, addTask, toggleModal }) {
       project: form.project,
       id: nanoid(),
     };
-    addTask(task);
-    clearForm();
-    toggleModal();
+    const isFormValid = validateForm();
+    if (isFormValid) {
+      addTask(task);
+      clearForm();
+      toggleModal();
+    }
   }
 
   function handleClose() {
@@ -165,7 +179,9 @@ function TaskModal({ projects, addTask, toggleModal }) {
                   </label>
                 </fieldset>
               </div>
-              <button type="submit" className="modal-submit">Submit</button>
+              <button type="submit" className="modal-submit">
+                Submit
+              </button>
               <small className="titleError" />
               <small className="descError" />
               <small className="dateError" />

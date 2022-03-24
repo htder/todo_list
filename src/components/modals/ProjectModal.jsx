@@ -42,7 +42,6 @@ function ProjectModal({ addProject, toggleModal }) {
       toggleModal();
     } else {
       console.log('fail');
-      return;
     }
   }
 
