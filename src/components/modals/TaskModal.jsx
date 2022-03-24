@@ -39,7 +39,7 @@ function TaskModal({ projects, addTask, toggleModal }) {
     let isValid = true;
     if (form.title.length <= 2) {
       isValid = false;
-      errors.title = 'Task name needs to be longer than two characters';
+      errors.title = 'Task title needs to be longer than two characters';
     }
     if (form.description.length <= 8) {
       isValid = false;
@@ -50,6 +50,7 @@ function TaskModal({ projects, addTask, toggleModal }) {
       isValid = false;
       errors.date = 'Please enter a date in the dd/mm/yyyy format';
     }
+    setFormErrors(errors);
     return isValid;
   }
 
@@ -114,6 +115,7 @@ function TaskModal({ projects, addTask, toggleModal }) {
                   value={form.title}
                   onChange={(event) => handleChange(event, 'title')}
                 />
+                <div className="project-form-error">{formErrors.title}</div>
               </div>
               <div className="modal-input">
                 <label htmlFor="dueDate" className="modal-date">
@@ -126,6 +128,7 @@ function TaskModal({ projects, addTask, toggleModal }) {
                   />
                   <span>Date Due</span>
                 </label>
+                <div className="project-form-error">{formErrors.date}</div>
               </div>
               <div className="modal-input">
                 <label htmlFor="project" className="modal-select">
@@ -149,6 +152,9 @@ function TaskModal({ projects, addTask, toggleModal }) {
                   value={form.description}
                   onChange={(event) => handleChange(event, 'description')}
                 />
+                <div className="project-form-error">
+                  {formErrors.description}
+                </div>
               </div>
               <div className="modal-input">
                 <fieldset className="priority">
