@@ -23,6 +23,8 @@ function EditTaskModal({
     project: todoProject,
   });
 
+  const [formErrors, setFormErrors] = useState({});
+
   function handleChange(event, type) {
     const input = event.target.value;
     setForm((prevForm) => ({
@@ -40,6 +42,10 @@ function EditTaskModal({
       priority: 'low',
       project: form.project,
     });
+  }
+
+  function validateForm() {
+    const errors = {};
   }
 
   function handleClose() {
