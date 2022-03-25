@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { AiOutlineFileAdd } from 'react-icons/ai';
 import { MdClose } from 'react-icons/md';
 import '../../styles/TaskModal.css';
+import { isDate, parseISO } from 'date-fns';
 
 function TaskModal({ projects, addTask, toggleModal }) {
   const [form, setForm] = useState({
@@ -46,7 +47,7 @@ function TaskModal({ projects, addTask, toggleModal }) {
       errors.description =
         'Task description needs to be longer than eight characters';
     }
-    if (!/^d{1,2}\d{1,2}\d{4}$/.test(form.date)) {
+    if (!isDate(parseISO(form.dueDate))) {
       isValid = false;
       errors.date = 'Please enter a date in the dd/mm/yyyy format';
     }
