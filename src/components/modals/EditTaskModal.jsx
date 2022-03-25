@@ -33,30 +33,37 @@ function EditTaskModal({
     }));
   }
 
-  function clearForm() {
-    setForm({
-      title: '',
-      description: '',
-      dueDate: '',
-      completed: false,
-      priority: 'low',
-      project: form.project,
-    });
-  }
-
   function validateForm() {
     const errors = {};
+    let isValid = true;
+    if (form.title.length <= 2) {
+      isValid = false;
+      errors.title = 'Task title needs to be longer than two characters';
+    }
+    if (form.description.length <= 8) {
+      isValid = false;
+      errors.description =
+        'Task description needs to be longer than eight characters';
+    }
+    if (!/^d{1,2}\d{1,2}\d{4}$/.test(form.date)) {
+      isValid = false;
+      errors.date = 'Please enter a date in the dd/mm/yyyy format';
+    }
+    setFormErrors(errors);
+    return isValid;
   }
 
   function handleClose() {
     closeModal();
-    // clearForm();
   }
 
   function handleEdit(event) {
     event.preventDefault();
-    edit(id, form);
-    closeModal();
+    const isFormValid = validateForm();
+    if (isFormValid) {
+      edit(id, form);
+      closeModal();
+    }
   }
 
   const projectList = projects.map((item) => (
