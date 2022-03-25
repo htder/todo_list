@@ -103,6 +103,7 @@ function EditTaskModal({
                   value={form.title}
                   onChange={(event) => handleChange(event, 'title')}
                 />
+                <div className="project-form-error">{formErrors.title}</div>
               </div>
               <div className="modal-input">
                 <label htmlFor="dueDate" className="modal-date">
@@ -115,6 +116,7 @@ function EditTaskModal({
                   />
                   <span>Date Due</span>
                 </label>
+                <div className="project-form-error">{formErrors.date}</div>
               </div>
               <div className="modal-input">
                 <label htmlFor="project" className="modal-select">
@@ -141,6 +143,9 @@ function EditTaskModal({
                   value={form.description}
                   onChange={(event) => handleChange(event, 'description')}
                 />
+                <div className="project-form-error">
+                  {formErrors.description}
+                </div>
               </div>
               <div className="modal-input">
                 <fieldset className="priority">
